@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Category;
 use App\Models\Order;
 use App\Http\Requests\Web\Dashborad\CourseRequest;
+use App\Http\Requests\Web\Dashborad\CourseUpdateRequest;
 use Storage;
 use Illuminate\Support\Str;
 class CourseDashController extends Controller
@@ -84,11 +85,11 @@ class CourseDashController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\CourseRequest  $request
+     * @param  \Illuminate\Http\CourseUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CourseRequest $request,$slug)
+    public function update(CourseUpdateRequest $request,$slug)
     {
         $course=Course::where('slug',$slug)->first();
         // Retrieve the validated input data...
@@ -98,12 +99,23 @@ class CourseDashController extends Controller
             $destination_path='images/course/';
             $filename=date('YmdHi').$file->getClientOriginalName();
             $path =$request->file('image')->storeAs($destination_path,$filename);
-            if(Storage::delete($course->image)){
+            if(file_exists($course->image)){
+                if(Storage::delete($course->image)){
+                $course->update($request->all());
+                $course->image= $path;
+                $course->slug=Str::of($request->slug)->slug('-');
+                $course->save();
+                }
+            }else{
+                $course->update($request->all());
+                $course->image= $path;
+                $course->slug=Str::of($request->slug)->slug('-');
+                $course->save();
+            }
+        }else{
             $course->update($request->all());
-            $course->image= $path;
             $course->slug=Str::of($request->slug)->slug('-');
             $course->save();
-        }
         }
         return redirect('courses')->with('success','date updated successfully');
     }
