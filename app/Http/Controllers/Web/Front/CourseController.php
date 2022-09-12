@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Controllers\Web\Front;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Models\City;
+class CourseController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('web.front.courses.index',[
+            'course'=>Course::with('categories','orders')->where('status','publish')->paginate(6)
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug)
+    {
+        $course=Course::with('titles','faqs','reviews')->where('slug',$slug)->first();
+        $city=City::all();
+        return view('web.front.single.single',compact('course','city'));
+    }
+}
