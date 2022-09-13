@@ -23,6 +23,9 @@
 <section dir="ltr" class="bg-1">	
 	<div class="pt-5 pb-5 container">
 		<div class="row g-4 align-self-stretch">
+			<div class="col-12">
+				<h3 class="text-center p-2">محتوى الدبلومة</h3>
+			</div>
 			@foreach($course->titles as $title)
 			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex">
 				<div class="card_box">
@@ -54,7 +57,7 @@
 						<?php echo $course->review_video; ?>
 					</div>
 					<div class="col-lg-6 col-md-12">
-						<h2 class="text-primary p-2">خليك زكى زى ذكى وادخل معانا الدبلومه    </h2>
+						<h2 class="text-primary p-2 text-center"> تقدر تستفيد بالخصم وتكون من المتدربين معانا فى الدبلومة وتستفيد من كل الخدمات اللى بنقدمهالك</h2>
 					</div>
 				</div>
 
@@ -164,7 +167,7 @@
 						<!-- end section7 -->
 						<!-- start footer -->
 						<section id="form" class="border border-primary mb-2 p-4">
-							<p class="fw-bolder text-center">برجاء كتابه البيانات بشكل كامل , بعدم اكتمال العنوان سوف يلغي ارسال الكورس</p>
+							<p class="fw-bolder text-center">برجاء كتابه البيانات بشكل كامل </p>
 								<div class="row g-3 align-self-stretch">
 								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 col-12 d-flex">
 										<form  id="OrderForm" class="w-100 ">
@@ -220,8 +223,8 @@
 				</div>
 			 </section>
 			 <footer>
-				<div class="copyriht">
-					create by <a href="https://www.youtube.com/channel/UCFyfDR43YEbcD5EzDgDjmqQ"><strong>eraasoft</strong></a>
+				<div class="copyriht text-center">
+					 2022 All Rights Reserved. Developed By  © <a href="https://www.eraasoft.com"><strong>EraaSoft</strong></a>
 				</div>
 			 </footer>
 <script>
@@ -300,3 +303,4 @@
       });
     });
 </script>
+

@@ -55,7 +55,7 @@ class CourseDashController extends Controller
         $request->validated();
         if($request->hasFile('image')){
             $file= $request->file('image');
-            $destination_path='images/course/';
+            $destination_path='/images/course/';
             $filename=date('YmdHi').$file->getClientOriginalName();
             $path =$request->file('image')->storeAs($destination_path,$filename);
             $course=Course::create($request->all());
@@ -96,7 +96,7 @@ class CourseDashController extends Controller
         $request->validated();
         if($request->hasFile('image')){
             $file= $request->file('image');
-            $destination_path='images/course/';
+            $destination_path='/images/course/';
             $filename=date('YmdHi').$file->getClientOriginalName();
             $path =$request->file('image')->storeAs($destination_path,$filename);
             if(file_exists($course->image)){

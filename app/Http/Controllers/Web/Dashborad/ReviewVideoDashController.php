@@ -23,7 +23,7 @@ class reviewVideoDashController extends Controller
      */
     public function index()
     {
-        $review=Review::with('courses')->paginate(6);
+        $review=Review::with('courses')->paginate();
         return view('web.dashborad.review_video.index',compact('review'));
     }
 
