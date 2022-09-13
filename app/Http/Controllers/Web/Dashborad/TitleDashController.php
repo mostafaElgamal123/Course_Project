@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Title;
 use App\Models\Course;
 use Storage;
-use Illuminate\Support\Str;
 use App\Http\Requests\Web\Dashborad\TitleRequest;
 class TitleDashController extends Controller
 {
@@ -52,8 +51,6 @@ class TitleDashController extends Controller
     {
         $request->validated();
         $title=Title::create($request->all());
-        $title->slug=Str::of($request->slug)->slug('-');
-        $title->save();
         return back()->with('success','date added successfully');
     }
 
@@ -78,9 +75,9 @@ class TitleDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
-        $title=Title::where('slug',$slug)->first();
+        $title=Title::where('id',$id)->first();
         return view('web.dashborad.titles.edit',[
             'title'=>$title,
             'course'=>Course::where('id',$title->course_id)->get()
@@ -94,13 +91,11 @@ class TitleDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TitleRequest $request,$slug)
+    public function update(TitleRequest $request,$id)
     {
-        $title=Title::where('slug',$slug)->first();
+        $title=Title::where('id',$id)->first();
         $request->validated();
         $title->update($request->except('token'));
-        $title->slug=Str::of($request->slug)->slug('-');
-        $title->save();
         $course=Course::where('id',$title->course_id)->first();
         return view('web.dashborad.titles.index',[
             'course'=>$course,
@@ -114,9 +109,9 @@ class TitleDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-       $title=Title::where('slug',$slug)->first();
+       $title=Title::where('id',$id)->first();
        if($title->delete()){
         return response()->json([
             'success' => 'Record deleted successfully!',

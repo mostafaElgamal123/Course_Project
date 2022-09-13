@@ -13,7 +13,6 @@ class Title extends Model
         'title',
         'description',
         'course_id',
-        'slug'
     ];
     public function courses(){
         return $this->belongsTo(Course::class,'course_id');

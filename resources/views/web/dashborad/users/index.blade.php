@@ -48,14 +48,14 @@
             @endif
           </td>
           <td class="align-middle">
+                <div class="d-flex align-items-center">
                 @can('user-edit')
-                <a href="{{ route('users.edit',$user->id) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                <a href="{{ route('users.edit',$user->id) }}" class="btn btn-info title_action ms-2" data-title="edit"><i class="fas fa-edit"></i></a>
                 @endcan
-          </td>
-          <td class="align-middle">
                 @can('user-delete')
-                <button class="btn btn-danger deleteRecord" data-id="{{ $user->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="btn btn-danger deleteRecord title_action ms-2" data-title="delete" data-id="{{ $user->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 @endcan
+                </div>
           </td>
         </tr>
         @endforeach

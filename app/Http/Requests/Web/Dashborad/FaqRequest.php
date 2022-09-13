@@ -25,9 +25,7 @@ class FaqRequest extends FormRequest
     {
         return [
             'question'       =>'required|min:3|max:150',
-            'slug'           =>'required|min:3|max:150',
             'answer'         =>'required|min:3|max:500',
-            'status'         =>'required',
             'course_id'      =>'required'
         ];
     }

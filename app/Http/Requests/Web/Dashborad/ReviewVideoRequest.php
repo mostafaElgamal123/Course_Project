@@ -25,8 +25,6 @@ class ReviewVideoRequest extends FormRequest
     {
         return [
             'review_video' =>'required|min:3|max:10000',
-            'status'       =>'required',
-            'slug'         =>'required|min:3|max:150',
             'course_id'    =>'required'
         ];
     }

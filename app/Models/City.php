@@ -11,6 +11,5 @@ class City extends Model
     protected $fillable = [
         'id',
         'city',
-        'slug'
     ];
 }

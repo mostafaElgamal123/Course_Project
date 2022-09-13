@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Title;
 use App\Models\SubTitle;
 use Storage;
-use Illuminate\Support\Str;
 class SubTitleDashController extends Controller
 {
     function __construct()
@@ -53,9 +52,9 @@ class SubTitleDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $title=Title::where('slug',$slug)->first();
+        $title=Title::where('id',$id)->first();
         return response()->json([
             'title'   =>$title->title,
             'subtitle'=>SubTitle::where('title_id',$title->id)->get()

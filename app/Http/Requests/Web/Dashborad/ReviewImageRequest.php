@@ -25,8 +25,6 @@ class ReviewImageRequest extends FormRequest
     {
         return [
             'review_image' =>'required|image|mimes:webp|max:1000',
-            'status'       =>'required',
-            'slug'         =>'required|min:3|max:150',
             'course_id'    =>'required'
         ];
     }

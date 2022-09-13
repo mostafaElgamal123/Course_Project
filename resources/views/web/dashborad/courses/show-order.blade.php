@@ -32,7 +32,7 @@
                 <td class="align-middle">{{$ord->educational_qualification}}</td>
                 <td class="align-middle">{{$ord->Courses->title}}</td>
                 <td class="align-middle">
-                <button class="btn btn-danger deleteRecord" data-id="{{ $ord->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="btn btn-danger deleteRecord title_action" data-title="delete" data-id="{{ $ord->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
             </tr>
         @endforeach
@@ -52,7 +52,7 @@
     $('.deleteRecord').on('click',function(){
         const rowsid=$(this).attr('data-id');
         $.ajax({
-            url: "http://127.0.0.1:8000/orders/"+rowsid,
+            url: `{{url('orders/${rowsid}')}}`,
             method: 'delete',
             data: {
                 "_token": "{{ csrf_token() }}",

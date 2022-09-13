@@ -17,8 +17,6 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->text('review_video')->nullable();
             $table->text('review_image')->nullable();
-            $table->string('slug');
-            $table->string('status');
             $table->foreignId('course_id')->constrained('courses');
             $table->timestamps();
         });

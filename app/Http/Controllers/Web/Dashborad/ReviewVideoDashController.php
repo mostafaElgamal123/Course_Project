@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Course;
-use Illuminate\Support\Str;
 use App\Http\Requests\Web\Dashborad\ReviewVideoRequest;
 class reviewVideoDashController extends Controller
 {
@@ -50,8 +49,6 @@ class reviewVideoDashController extends Controller
     {
         $request->validated();
         $review=Review::create($request->all());
-        $review->slug=Str::of($request->slug)->slug('-');
-        $review->save();
         return back()->with('success','date added successfully');
     }
 
@@ -72,10 +69,10 @@ class reviewVideoDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
         return view('web.dashborad.review_video.edit',[
-            'review'=>Review::where('slug',$slug)->first(),
+            'review'=>Review::where('id',$id)->first(),
             'course'=>Course::all()
         ]);
     }
@@ -87,13 +84,11 @@ class reviewVideoDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ReviewVideoRequest $request,$slug)
+    public function update(ReviewVideoRequest $request,$id)
     {
-        $review=Review::where('slug',$slug)->first();
+        $review=Review::where('id',$id)->first();
         $request->validated();
         $review->update($request->except('token'));
-        $review->slug=Str::of($request->slug)->slug('-');
-        $review->save();
         return redirect('reviewvideos')->with('success','date updated successfully');
     }
 
@@ -103,9 +98,9 @@ class reviewVideoDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $review=Review::where('slug',$slug)->first();
+        $review=Review::where('id',$id)->first();
         if($review->delete()){
             return response()->json([
                 'success' => 'Record deleted successfully!',

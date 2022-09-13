@@ -20,8 +20,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">name</th>
-                <th scope="col">edit</th>
-                <th scope="col">delete</th>
+                <th scope="col">action</th>
             </tr>
         </thead>
         <tbody>
@@ -30,14 +29,14 @@
                     <th scope="row" class="align-middle">{{$loop->iteration}}</th>
                     <td class="align-middle">{{$role->name}}</td>
                     <td class="align-middle">
-                    @can('role-edit')
-                        <a href="{{ route('roles.edit',$role->id) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                    <div class="d-flex align-items-center">
+                       @can('role-edit')
+                        <a href="{{ route('roles.edit',$role->id) }}" class="btn btn-info title_action ms-2" data-title="edit"><i class="fas fa-edit"></i></a>
                         @endcan
-                    </td>
-                    <td class="align-middle">
                         @can('role-delete')
-                        <button class="btn btn-danger deleteRecord" data-id="{{ $role->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button class="btn btn-danger deleteRecord title_action ms-2" data-title="delete" data-id="{{ $role->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         @endcan
+                    </div>
                     </td>
                 </tr>
             @endforeach

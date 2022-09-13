@@ -17,10 +17,6 @@
                 <input type="text" name="title" value="{{old('title')}}" class="form-control">
             </div>
             <div class="mb-3">
-                <label class="form-label">slug</label>
-                <input type="text" name="slug" value="{{old('slug')}}" class="form-control">
-            </div>
-            <div class="mb-3">
                 <label class="form-label">description</label>
                 <input type="text" name="description" value="{{old('description')}}" class="form-control">
             </div>
@@ -51,12 +47,12 @@
                 <td class="align-middle">{{$titl->title}}</td>
                 <td class="align-middle">
                 <div class="d-flex align-items-center">
-                        <button class="btn btn-primary item_popper" data-id="{{ $titl->id }}">
+                        <button class="btn btn-primary item_popper title_action" data-id="{{ $titl->id }}" data-title="add subtitle">
                             <i class="fas fa-plus"></i>
                         </button>
-                        <button class="btn btn-primary ms-2 item_popper_view " data-id="{{ $titl->slug }}"><i class="fas fa-folder"></i></button>
-                        <a href="{{url('/titles/'.$titl->slug."/edit")}}" class="btn btn-info ms-2"><i class="fas fa-edit"></i></a>
-                        <button class="btn btn-danger deleteRecord ms-2" data-id="{{ $titl->slug }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button class="btn btn-primary ms-2 item_popper_view title_action" data-id="{{ $titl->id }}" data-title="show subtitle"><i class="fa fa-eye"></i></button>
+                        <a href="{{url('/titles/'.$titl->id."/edit")}}" class="btn btn-info ms-2 title_action" data-title="edit"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-danger deleteRecord ms-2 title_action" data-id="{{ $titl->id }}" data-title="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                 </td>
             </tr>
@@ -78,7 +74,7 @@
         const rowslug=$(this).attr('data-id');
         console.log(rowslug);
         $.ajax({
-            url: "http://127.0.0.1:8000/titles/"+rowslug,
+            url: `{{url('titles/${rowslug}')}}`,
             method: 'DELETE',
             data: {
                 "_token": "{{ csrf_token() }}",
@@ -136,7 +132,7 @@
         const rowslug=$(this).attr('data-id');
         var op=" ";
         $.ajax({
-            url: "http://127.0.0.1:8000/subtitles/"+rowslug,
+            url: `{{url('subtitles/${rowslug}')}}`,
             method: 'get',
             data: {
                 "_token": "{{ csrf_token() }}",
@@ -150,7 +146,7 @@
                                 <td class="align-middle">${result.subtitle[i].subtitle}</td>
                                 <td class="align-middle">
                                 <div class="d-flex align-items-center parant">
-                                        <button class="btn btn-danger deleteRecordsub  ms-2" data-id="${result.subtitle[i].id}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        <button class="btn btn-danger deleteRecordsub title_action ms-2" data-id="${result.subtitle[i].id}" data-title="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                     </div>
                                 </td>
                          </tr>`;
@@ -165,7 +161,7 @@
         const rowslug=$(this).attr('data-id');
         console.log(rowslug);
         $.ajax({
-            url: "http://127.0.0.1:8000/subtitles/"+rowslug,
+            url: `{{url('subtitles/${rowslug}')}}`,
             method: 'DELETE',
             data: {
                 "_token": "{{ csrf_token() }}",

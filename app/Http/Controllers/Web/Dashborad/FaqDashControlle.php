@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Faq;
 use App\Models\Course;
 use Storage;
-use Illuminate\Support\Str;
 use App\Http\Requests\Web\Dashborad\FaqRequest;
 class FaqDashControlle extends Controller
 {
@@ -51,8 +50,6 @@ class FaqDashControlle extends Controller
     {
         $request->validated();
         $faq=faq::create($request->all());
-        $faq->slug=Str::of($request->slug)->slug('-');
-        $faq->save();
         return back()->with('success','date added successfully');
     }
 
@@ -73,10 +70,10 @@ class FaqDashControlle extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
         return view('web.dashborad.faq.edit',[
-            'faq'=>Faq::where('slug',$slug)->first(),
+            'faq'=>Faq::where('id',$id)->first(),
             'course'=>Course::all()
         ]);
     }
@@ -88,13 +85,11 @@ class FaqDashControlle extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FaqRequest $request,$slug)
+    public function update(FaqRequest $request,$id)
     {
-        $faq=Faq::where('slug',$slug)->first();
+        $faq=Faq::where('id',$id)->first();
         $request->validated();
         $faq->update($request->all());
-        $faq->slug=Str::of($request->slug)->slug('-');
-        $faq->save();
         return redirect('faqs')->with('success','date updated successfully');
     }
 
@@ -104,9 +99,9 @@ class FaqDashControlle extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $faq=Faq::where('slug',$slug)->first();
+        $faq=Faq::where('id',$id)->first();
             if($faq->delete()){
                 return response()->json([
                     'success' => 'Record deleted successfully!',

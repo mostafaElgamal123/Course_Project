@@ -17,7 +17,6 @@ class CreateTitlesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('slug');
             $table->foreignId('course_id')->constrained('courses');
             $table->timestamps();
         });

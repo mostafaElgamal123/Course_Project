@@ -36,8 +36,8 @@
                 </td>
                 <td  class="align-middle">
                     <div class="d-flex align-items-center">
-                        <a href="{{url('/categories/'.$cate->slug."/edit")}}" class="btn btn-info ms-2"><i class="fas fa-edit"></i></a>
-                        <button class="btn btn-danger deleteRecord ms-2" data-id="{{ $cate->slug }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <a href="{{url('/categories/'.$cate->slug."/edit")}}" class="btn btn-info ms-2 title_action" data-title="edit"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-danger deleteRecord ms-2 title_action" data-id="{{ $cate->slug }}" data-title="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                     </td>
             </tr>
@@ -59,7 +59,7 @@
         const rowslug=$(this).attr('data-id');
         console.log(rowslug);
         $.ajax({
-            url: "http://127.0.0.1:8000/categories/"+rowslug,
+            url: `{{url('categories/${rowslug}')}}`,
             method: 'DELETE',
             data: {
                 "_token": "{{ csrf_token() }}",

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Web\Dashborad;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\City;
-use Illuminate\Support\Str;
 class CityDashController extends Controller
 {
     function __construct()
@@ -47,11 +46,8 @@ class CityDashController extends Controller
     {
         $request->validate([
             'city'       =>'required|min:3|max:150',
-            'slug'       =>'required|min:3|max:150'
         ]);
         $city=City::create($request->all());
-        $city->slug=Str::of($request->slug)->slug('-');
-        $city->save();
         return back()->with('success','date added successfully');
     }
 
@@ -72,10 +68,10 @@ class CityDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
         return view('web.dashborad.city.edit',[
-            'city'=>City::where('slug',$slug)->first(),
+            'city'=>City::where('id',$id)->first(),
         ]);
     }
 
@@ -86,16 +82,13 @@ class CityDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$slug)
+    public function update(Request $request,$id)
     {
-        $city=City::where('slug',$slug)->first();
+        $city=City::where('id',$id)->first();
         $request->validate([
             'city'       =>'required|min:3|max:150',
-            'slug'       =>'required|min:3|max:150'
         ]);
         $city->update($request->except('token'));
-        $city->slug=Str::of($request->slug)->slug('-');
-        $city->save();
         return redirect('cities')->with('success','date updated successfully');
     }
 
@@ -105,9 +98,9 @@ class CityDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-       $city=City::where('slug',$slug)->first();
+       $city=City::where('id',$id)->first();
        if($city->delete()){
         return response()->json([
             'success' => 'Record deleted successfully!',

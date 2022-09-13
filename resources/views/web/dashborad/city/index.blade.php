@@ -28,8 +28,8 @@
                 <td class="align-middle">{{$cit->city}}</td>
                 <td  class="align-middle">
                     <div class="d-flex align-items-center">
-                        <a href="{{url('/cities/'.$cit->slug."/edit")}}" class="btn btn-info ms-2"><i class="fas fa-edit"></i></a>
-                        <button class="btn btn-danger deleteRecord ms-2" data-id="{{ $cit->slug }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <a href="{{url('/cities/'.$cit->id."/edit")}}" class="btn btn-info ms-2 title_action" data-title="edit"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-danger deleteRecord ms-2 title_action" data-id="{{ $cit->id }}" data-title="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                     </td>
             </tr>
@@ -51,7 +51,7 @@
         const rowslug=$(this).attr('data-id');
         console.log(rowslug);
         $.ajax({
-            url: "http://127.0.0.1:8000/cities/"+rowslug,
+            url: `{{url('cities/${rowslug}')}}`,
             method: 'DELETE',
             data: {
                 "_token": "{{ csrf_token() }}",

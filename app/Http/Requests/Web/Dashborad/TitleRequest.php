@@ -27,7 +27,6 @@ class TitleRequest extends FormRequest
             'title'              =>'required|min:3|max:1000',
             'description'       =>'required|min:3|max:150',
             'course_id'         =>'required|',
-            'slug'  
         ];
     }
 }

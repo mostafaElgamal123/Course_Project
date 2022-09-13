@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Course;
 use Storage;
-use Illuminate\Support\Str;
 use App\Http\Requests\Web\Dashborad\ReviewImageRequest;
 use App\Http\Requests\Web\Dashborad\ReviewImageUpdateRequest;
 class ReviewImageDashController extends Controller
@@ -57,7 +56,6 @@ class ReviewImageDashController extends Controller
             $filename=date('YmdHi').$file->getClientOriginalName();
             $path =$request->file('review_image')->storeAs($destination_path,$filename);
             $review=Review::create($request->all());
-            $review->slug=Str::of($request->slug)->slug('-');
             $review->review_image=$path;
             $review->save();
         }
@@ -81,10 +79,10 @@ class ReviewImageDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
         return view('web.dashborad.review_image.edit',[
-            'review'=>Review::where('slug',$slug)->first(),
+            'review'=>Review::where('id',$id)->first(),
             'course'=>Course::all()
         ]);
     }
@@ -96,31 +94,26 @@ class ReviewImageDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ReviewImageUpdateRequest $request,$slug)
+    public function update(ReviewImageUpdateRequest $request,$id)
     {
-        $review=Review::where('slug',$slug)->first();
+        $review=Review::where('id',$id)->first();
         $request->validated();
         if($request->hasFile('review_image')){
             $file= $request->file('review_image');
             $destination_path='images/review/';
             $filename=date('YmdHi').$file->getClientOriginalName();
             $path =$request->file('review_image')->storeAs($destination_path,$filename);
-            if(file_exists($review->review_image)){
             if(Storage::delete($review->review_image)){
             $review->update($request->except('token'));
-            $review->slug=Str::of($request->slug)->slug('-');
             $review->review_image=$path;
             $review->save();
-            }
-           }else{
+            }else{
             $review->update($request->except('token'));
-            $review->slug=Str::of($request->slug)->slug('-');
             $review->review_image=$path;
             $review->save();
            }
         }else{
             $review->update($request->except('token'));
-            $review->slug=Str::of($request->slug)->slug('-');
             $review->save();
         }
         return redirect('reviewimages')->with('success','date updated successfully');
@@ -132,10 +125,17 @@ class ReviewImageDashController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $review=Review::where('slug',$slug)->first();
+        $review=Review::where('id',$id)->first();
         if(Storage::delete($review->review_image)) {
+            if($review->delete()){
+                return response()->json([
+                    'success' => 'Record deleted successfully!',
+                    'id'      =>  $review->id
+                ]);
+            }
+         }else{
             if($review->delete()){
                 return response()->json([
                     'success' => 'Record deleted successfully!',

@@ -10958,3 +10958,26 @@ textarea.form-control-lg {
     width: 100%;
   }  
 }
+
+
+
+
+.title_action{
+  position: relative;
+}
+
+
+.title_action:hover::before{
+  content: attr(data-title);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+  width: max-content;
+}

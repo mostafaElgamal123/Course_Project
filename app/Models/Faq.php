@@ -11,10 +11,8 @@ class Faq extends Model
     protected $fillable = [
         'id',
         'question',
-        'slug',
         'answer',
         'course_id',
-        'status'
     ];
     public function courses(){
         return $this->belongsTo(Course::class,'course_id');;

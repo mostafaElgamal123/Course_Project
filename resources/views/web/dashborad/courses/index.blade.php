@@ -55,10 +55,10 @@
                     </td>
                     <td  class="align-middle">
                     <div class="d-flex align-items-center">
-                        <a href="{{url('/titles/'.$cour->slug)}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
-                        <a href="{{url('/orders/'.$cour->slug)}}" class="btn btn-primary ms-2"><i class="fas fa-folder"></i></a>
-                        <a href="{{url('/courses/'.$cour->slug."/edit")}}" class="btn btn-info ms-2"><i class="fas fa-edit"></i></a>
-                        <button class="btn btn-danger deleteRecord ms-2" data-id="{{ $cour->slug }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <a href="{{url('/titles/'.$cour->slug)}}" class="btn btn-primary title_action" data-title="add title"><i class="fas fa-plus"></i></a>
+                        <a href="{{url('/orders/'.$cour->slug)}}" class="btn btn-primary title_action ms-2"data-title="show orders"><i class="fa fa-eye"></i></a>
+                        <a href="{{url('/courses/'.$cour->slug."/edit")}}" class="btn btn-info ms-2 title_action" data-title="edit"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-danger deleteRecord ms-2 title_action" data-id="{{ $cour->slug }}" data-title="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                     </td>
                 </tr>
@@ -79,7 +79,7 @@
     $('.deleteRecord').on('click',function(){
         const rowslug=$(this).attr('data-id');
         $.ajax({
-            url: "http://127.0.0.1:8000/courses/"+rowslug,
+            url: `{{url('courses/${rowslug}')}}`,
             method: 'delete',
             data: {
                 "_token": "{{ csrf_token() }}",

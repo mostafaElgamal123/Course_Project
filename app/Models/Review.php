@@ -12,7 +12,6 @@ class Review extends Model
         'id',
         'review_video',
         'review_image',
-        'slug',
         'course_id',
         'status'
     ];
