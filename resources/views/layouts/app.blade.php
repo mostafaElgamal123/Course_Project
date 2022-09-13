@@ -47,6 +47,7 @@
                                     <a class="nav-link" style="color:white;" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
+                            
 
                             @if (Route::has('register'))
                                 <li class="nav-item">

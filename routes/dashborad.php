@@ -4,7 +4,7 @@ use App\Http\Controllers\{RoleControlle,UserController};
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     //dashborad route
-    Route::get('/dashborad',[DashboradController::class,'index'])->name('dashborad');
+    Route::get('/dashboard',[DashboradController::class,'index'])->name('dashborad');
     Route::resource('/roles', RoleControlle::class);
     Route::resource('/users', UserController::class);
     Route::resource('/categories',CategoryDashController::class);
@@ -17,3 +17,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/reviewvideos',ReviewVideoDashController::class);
     Route::resource('/cities',CityDashController::class);
 });
+

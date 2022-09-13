@@ -16,6 +16,9 @@ class PermissionTableSeeder extends Seeder
     {
         $permissions = [
            'dashborad-list',
+           'dashborad-create',
+           'dashborad-read',
+           'dashborad-delete',
            'role-list',
            'role-create',
            'role-edit',

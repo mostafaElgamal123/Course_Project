@@ -26,3 +26,15 @@ use Illuminate\Support\Facades\Route;
 require_once('dashborad.php');
 //require route front
 require_once('front.php');
+
+// Auth::routes(['register' => false]);
+Route::match(['get', 'post'], 'register', function () {
+    abort(404);
+});
+Route::match(['get', 'post'], 'password/reset', function () {
+    abort(404);
+});
+
+
+
+

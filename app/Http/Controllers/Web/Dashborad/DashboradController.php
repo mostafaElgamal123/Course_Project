@@ -9,7 +9,7 @@ class DashboradController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:dashborad-list|dashborad-create|dashborad-edit|dashborad-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:dashborad-list|dashborad-create|dashborad-edit|dashborad-delete', ['only' => ['index','show']]);
     }
 
 
