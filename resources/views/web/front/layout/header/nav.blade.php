@@ -6,7 +6,7 @@ use App\Models\ChangeConstant;
     <div class="container">
         @include('web.front.layout.header.logo')
         <a href="#form"  class="btn ms-auto main-btn hidden_mobile" type="submit">
-            {{$changeconstant->enrollnow}}
+           @if(isset($changeconstant->enrollnow)) {{$changeconstant->enrollnow}} @endif
         </a>
     </div>
 </nav>
