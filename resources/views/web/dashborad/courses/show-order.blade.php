@@ -29,7 +29,7 @@
                 <td class="align-middle">{{$ord->name}}</td>
                 <td class="align-middle">{{$ord->phone}}</td>
                 <td class="align-middle">{{$ord->email}}</td>
-                <td class="align-middle">{{$ord->city}}</td>
+                <td class="align-middle">{{$ord->cities->city}}</td>
                 <td class="align-middle">{{$ord->educational_qualification}}</td>
                 <td class="align-middle">{{$ord->Courses->title}}</td>
                 <td class="align-middle">{{date('d-m-Y h:i:s', strtotime($ord->order_date)) }}</td>

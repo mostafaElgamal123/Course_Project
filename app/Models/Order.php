@@ -13,11 +13,14 @@ class Order extends Model
         'name', 
         'phone',
         'email',
-        'city',
         'educational_qualification',
+        'city_id',
         'course_id'
     ];
     public function courses(){
-        return $this->belongsTo(Course::class,'course_id');;
+        return $this->belongsTo(Course::class,'course_id');
+    }
+    public function cities(){
+        return $this->belongsTo(City::class,'city_id');
     }
 }

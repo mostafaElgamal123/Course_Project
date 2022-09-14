@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('city');
             $table->string('educational_qualification');
             $table->foreignId('course_id')->constrained('courses');
-            $table->timestamps("order_date");
+            $table->timestamp("order_date");
             $table->timestamps();
         });
     }

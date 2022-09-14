@@ -24,12 +24,6 @@
                             </div>
                         </div>
                     </div>
-                    @if(isset($cours->offer)&&$cours->offer > 0)
-                    <div class="card-discount">
-                       <div class="line"></div>
-                       <span>{{$cours->offer}}%</span>
-                   </div>
-                   @endif
                 </a>
             </div>
             @endforeach

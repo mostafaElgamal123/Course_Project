@@ -355,4 +355,7 @@ footer input{
   .hidden_mobile{
     display: none;
   }
+  .style_mobile{
+    margin: auto;
+  }
 }

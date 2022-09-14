@@ -16,6 +16,6 @@ class Review extends Model
         'status'
     ];
     public function courses(){
-        return $this->belongsTo(Course::class,'course_id');;
+        return $this->belongsTo(Course::class,'course_id');
     }
 }

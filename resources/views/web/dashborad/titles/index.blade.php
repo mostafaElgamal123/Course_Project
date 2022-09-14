@@ -182,6 +182,29 @@
         $('.subtitle').removeClass('subtitle_active');
         $('.subtitleview').removeClass('subtitleview_active');
     })
-
+$(document).click(function() {
+        $('.subtitle').removeClass('subtitle_active');
+        $('.subtitleview').removeClass('subtitleview_active');
+});
+$(".subtitle").click(function(e) {
+    e.stopPropagation(); // This is the preferred method.
+    return true;        // This should not be used unless you do not want
+                         // any click events registering inside the div
+});
+$(".subtitleview").click(function(e) {
+    e.stopPropagation(); // This is the preferred method.
+    return true;        // This should not be used unless you do not want
+                         // any click events registering inside the div
+});
+$(".item_popper").click(function(e) {
+    e.stopPropagation(); // This is the preferred method.
+    return true;        // This should not be used unless you do not want
+                         // any click events registering inside the div
+});
+$(".item_popper_view").click(function(e) {
+    e.stopPropagation(); // This is the preferred method.
+    return true;        // This should not be used unless you do not want
+                         // any click events registering inside the div
+});
 </script>
 @endsection

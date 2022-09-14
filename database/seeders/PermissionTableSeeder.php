@@ -61,6 +61,10 @@ class PermissionTableSeeder extends Seeder
            'city-create',
            'city-edit',
            'city-delete',
+           'changeconstant-list',
+           'changeconstant-create',
+           'changeconstant-edit',
+           'changeconstant-delete',
         ];
      
         foreach ($permissions as $permission) {

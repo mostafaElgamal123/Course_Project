@@ -24,18 +24,18 @@ class Course extends Model
         'status'
     ];
     public function categories(){
-        return $this->belongsTo(Category::class,'category_id');;
+        return $this->belongsTo(Category::class,'category_id');
     }
     public function titles(){
-        return $this->hasMany(Title::class,'course_id');;
+        return $this->hasMany(Title::class,'course_id');
     }
     public function orders(){
-        return $this->hasMany(Order::class,'course_id');;
+        return $this->hasMany(Order::class,'course_id');
     }
     public function faqs(){
-        return $this->hasMany(Faq::class,'course_id');;
+        return $this->hasMany(Faq::class,'course_id');
     }
     public function reviews(){
-        return $this->hasMany(Review::class,'course_id');;
+        return $this->hasMany(Review::class,'course_id');
     }
 }

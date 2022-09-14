@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\City;
+use App\Models\ChangeConstant;
 class CourseController extends Controller
 {
     /**
@@ -30,6 +31,7 @@ class CourseController extends Controller
     {
         $course=Course::with('titles','faqs','reviews')->where('slug',$slug)->first();
         $city=City::all();
-        return view('web.front.single.single',compact('course','city'));
+        $changeconstant=ChangeConstant::first();
+        return view('web.front.single.single',compact('course','city','changeconstant'));
     }
 }

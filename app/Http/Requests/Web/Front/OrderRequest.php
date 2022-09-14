@@ -27,7 +27,7 @@ class OrderRequest extends FormRequest
             'name'                              =>'required|min:3|max:250',
             'phone'                             =>'required|numeric',
             'email'                             =>'required|email|unique:users,email',
-            'city'                              =>'required|min:3|max:150',
+            'city_id'                           =>'required|',
             'educational_qualification'         =>'required|min:3|max:350'
         ];
     }

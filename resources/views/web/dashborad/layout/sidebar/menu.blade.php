@@ -59,6 +59,14 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a href="{{url('/changeconstants')}}" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                    constant Page
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{url('/categories')}}" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>

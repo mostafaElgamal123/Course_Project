@@ -8,7 +8,7 @@
 						{{$course->title}}
 					</h1>
 					<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
-						عايز استفيد بالخصم
+						  {{$changeconstant->enrollnow}}
 					</a>
 					<?php echo $course->description; ?>
 				</div>
@@ -24,7 +24,7 @@
 	<div class="pt-5 pb-5 container">
 		<div class="row g-4 align-self-stretch">
 			<div class="col-12">
-				<h3 class="text-center p-2">محتوى الدبلومة</h3>
+				<h3 class="text-center p-2">{{$changeconstant->title_section_content}}</h3>
 			</div>
 			@foreach($course->titles as $title)
 			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex">
@@ -42,7 +42,7 @@
 		
 		<div class="text-center pb-5 pt-5">
 			<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
-			عايز استفيد بالخصم
+			{{$changeconstant->enrollnow}}
 			</a>
 		</div>
 	</div>
@@ -57,14 +57,13 @@
 						<?php echo $course->review_video; ?>
 					</div>
 					<div class="col-lg-6 col-md-12">
-						<h2 class="text-primary p-2 text-center"> تقدر تستفيد بالخصم وتكون من المتدربين معانا فى الدبلومة وتستفيد من كل الخدمات اللى بنقدمهالك</h2>
+						<h2 class="text-primary p-2 text-center">{{$changeconstant->title_video1}}</h2>
 					</div>
 				</div>
 
 				<div class="pt-5 pb-5">
 					<h2 class="text-center pt-3 pb-3 text-primary fw-bold">
-						عايز تشوف الشرح داخل الكورس اخباره ايه ؟ معاك محاضره كامله
-						تقدر تشاهدها
+					{{$changeconstant->title_video2}}
 					</h2>
 					<div class="row">
 						<div class="col-md-10 col-12 mx-auto">
@@ -82,7 +81,7 @@
 			<div class="container">
 				<div class="text-center pb-2">
 					<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
-						عايز استفيد بالخصم
+					{{$changeconstant->enrollnow}}
 					</a>
 					</div>
 					<div class="accordion" id="accordionExample">
@@ -114,7 +113,7 @@
 			<section class="bg-2 review">
 					<div class="sec4 text-center pb-5 pt-5 ">
 						<h2 class="fw-bolder text-primary">
-							آراء المتدربين فى الكورسات السابقة
+						{{$changeconstant->title_section_review}}
 						</h2>
 						<span><i class="fas fa-star"></i></span>
 						<span><i class="fas fa-star"></i></span>
@@ -141,7 +140,7 @@
 					<div class="container">
 						<div class="text-center pb-5">
 								<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
-							عايز استفيد بالخصم
+								{{$changeconstant->enrollnow}}
 						</a>
 						</div>
 						<div class="row pb-5 pt-5">
@@ -162,12 +161,12 @@
 				<div class="container">
 					<!-- Display the countdown timer in an element -->
 						<h1 class="rounded-pill p-3 fw-bolder text-primary text-center">
-								لمده 24 ساعه فقط {{$course->price}} جنيه بدلا من <?php echo($course->price+$course->offer); ?>
+						{{$changeconstant->title_form_offer}} {{$course->price}} جنيه بدلا من <?php echo($course->price+$course->offer); ?>
 						</h1>
 						<!-- end section7 -->
 						<!-- start footer -->
 						<section id="form" class="border border-primary mb-2 p-4">
-							<p class="fw-bolder text-center">برجاء كتابه البيانات بشكل كامل </p>
+							<p class="fw-bolder text-center">   {{$changeconstant->enrollnow}}  </p>
 								<div class="row g-3 align-self-stretch">
 								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 col-12 d-flex">
 										<form  id="OrderForm" class="w-100 ">
@@ -194,10 +193,10 @@
 											</div>
 											<div class="mb-3">
 												<label class="form-label">المحافظه <span style="color:red; font-size:25px;">*</span></label>
-												<select id="city" name="city" value="{{old('city')}}" class="form-select border-dark ">
+												<select id="city_id" name="city_id" value="{{old('city_id')}}" class="form-select border-dark ">
 													<option value="0" disabled="true" selected="true">-Select-</option>
 													@foreach($city as $cit)
-													<option value="{{$cit->city}}">{{$cit->city}}</option>
+													<option value="{{$cit->id}}">{{$cit->city}}</option>
 													@endforeach
 												</select>
 												<div class="alterError4"></div>
@@ -208,7 +207,7 @@
 												<div class="alterError5"></div>
 											</div>
 											<input type="hidden" id="course_id" value="{{$course->id}}" class="form-control border-dark" id="exampleInputPassword1">
-											<button type="submit" class="btn w-100 btn-primary">Submit</button>
+											<button type="submit" class="btn w-100 btn-primary">{{$changeconstant->submit_form}} </button>
 										</form>
 									</div>
 									<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 col-12 d-flex">
@@ -234,7 +233,7 @@
     let name = $('#name').val();
     let phone = $('#phone').val();
     let email = $('#email').val();
-	let city = $('#city').val();
+	let city_id = $('#city_id').val();
     let educational_qualification = $('#educational_qualification').val();
     let course_id = $('#course_id').val();
     var opSuccess=" ";
@@ -251,7 +250,7 @@
         name:name,
         phone:phone,
         email:email,
-		city:city,
+		city_id:city_id,
         educational_qualification:educational_qualification,
         course_id:course_id,
       },
@@ -283,8 +282,8 @@
             if(error3.responseJSON.errors.phone){
                 opError4+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.phone+'</div>';
             }
-			if(error3.responseJSON.errors.city){
-                opError5+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.city+'</div>';
+			if(error3.responseJSON.errors.city_id){
+                opError5+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.city_id+'</div>';
             }
             $('.alterError1').html(" ");
 			$('.alterError2').html(" ");

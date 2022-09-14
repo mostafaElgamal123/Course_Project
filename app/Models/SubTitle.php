@@ -14,6 +14,6 @@ class SubTitle extends Model
         'title_id',
     ];
     public function titles(){
-        return $this->belongsTo(Title::class,'title_id');;
+        return $this->belongsTo(Title::class,'title_id');
     }
 }

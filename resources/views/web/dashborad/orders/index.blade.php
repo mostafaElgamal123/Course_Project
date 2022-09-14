@@ -28,23 +28,23 @@
                             <div class="col-md-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example1">Course</label>
-                                    <input type="text" name="course" list="browserscourse" value="{{old('course')}}" id="form6Example1" class="form-control" />
-                                    <datalist id="browserscourse">
+                                    <select class="form-select" name="course" value="{{old('course')}}" aria-label="Default select example" placeholder="Select Course">
+                                        <option selected></option>
                                         @foreach($course as $cou)
-                                        <option value="{{$cou->title}}"></option>
+                                        <option value="{{$cou->id}}">{{$cou->title}}</option>
                                         @endforeach
-                                    </datalist>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example1">City</label>
-                                    <input class="form-control" list="browserscity" name="city" value="{{old('city')}}">
-                                    <datalist id="browserscity">
+                                    <select class="form-select" name="city" value="{{old('city')}}" aria-label="Default select example" placeholder="Select City">
+                                        <option selected></option>
                                         @foreach($city as $ci)
-                                        <option value="{{$ci->city}}"></option>
+                                        <option value="{{$ci->id}}">{{$ci->city}}</option>
                                         @endforeach
-                                    </datalist>
+                                    </select>
                                 </div>
                             </div>
                             <!-- Submit button -->
@@ -80,7 +80,7 @@
                 <td class="align-middle">{{$ord->name}}</td>
                 <td class="align-middle">{{$ord->phone}}</td>
                 <td class="align-middle">{{$ord->email}}</td>
-                <td class="align-middle">{{$ord->city}}</td>
+                <td class="align-middle">{{$ord->cities->city}}</td>
                 <td class="align-middle">{{$ord->educational_qualification}}</td>
                 <td class="align-middle">{{$ord->Courses->title}}</td>
                 <td class="align-middle">{{date('Y-m-d H:i:s', strtotime($ord->order_date)) }}</td>

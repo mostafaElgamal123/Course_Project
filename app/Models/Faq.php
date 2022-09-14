@@ -15,6 +15,6 @@ class Faq extends Model
         'course_id',
     ];
     public function courses(){
-        return $this->belongsTo(Course::class,'course_id');;
+        return $this->belongsTo(Course::class,'course_id');
     }
 }
