@@ -99,13 +99,11 @@ class CourseDashController extends Controller
             $destination_path='/images/course/';
             $filename=date('YmdHi').$file->getClientOriginalName();
             $path =$request->file('image')->storeAs($destination_path,$filename);
-            if(file_exists($course->image)){
-                if(Storage::delete($course->image)){
+            if(Storage::delete($course->image)){
                 $course->update($request->all());
                 $course->image= $path;
                 $course->slug=Str::of($request->slug)->slug('-');
                 $course->save();
-                }
             }else{
                 $course->update($request->all());
                 $course->image= $path;
@@ -130,6 +128,13 @@ class CourseDashController extends Controller
     {
         $course=Course::where('slug',$slug)->first();
         if(Storage::delete($course->image)) {
+            if($course->delete()){
+                return response()->json([
+                    'success' => 'Record deleted successfully!',
+                    'id'      =>  $course->id
+                ]);
+            }
+         }else{
             if($course->delete()){
                 return response()->json([
                     'success' => 'Record deleted successfully!',

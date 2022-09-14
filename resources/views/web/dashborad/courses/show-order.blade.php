@@ -18,6 +18,7 @@
             <th scope="col">city</th>
             <th scope="col">educational qualification</th>
             <th scope="col">course</th>
+            <th scope="col">order date</th>
             <th scope="col">action</th>
         </tr>
     </thead>
@@ -31,8 +32,9 @@
                 <td class="align-middle">{{$ord->city}}</td>
                 <td class="align-middle">{{$ord->educational_qualification}}</td>
                 <td class="align-middle">{{$ord->Courses->title}}</td>
+                <td class="align-middle">{{date('d-m-Y h:i:s', strtotime($ord->order_date)) }}</td>
                 <td class="align-middle">
-                <button class="btn btn-danger deleteRecord title_action" data-title="delete" data-id="{{ $ord->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                   <button class="btn btn-danger deleteRecord title_action" data-title="delete" data-id="{{ $ord->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
             </tr>
         @endforeach

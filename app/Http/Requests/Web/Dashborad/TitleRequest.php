@@ -25,7 +25,7 @@ class TitleRequest extends FormRequest
     {
         return [
             'title'              =>'required|min:3|max:1000',
-            'description'       =>'required|min:3|max:150',
+            'description'       =>'required|min:3|max:1000',
             'course_id'         =>'required|',
         ];
     }

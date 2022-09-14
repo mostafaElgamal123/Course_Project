@@ -6,6 +6,57 @@
 @section('breadcrumb','order')
 
 @section('content')
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <form id="filter_form" action="{{url('orders')}}" method="get">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example1">Start</label>
+                                    <input type="date" name="start" value="{{old('start')}}" id="form6Example1" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example1">End</label>
+                                    <input type="date" name="end" value="{{old('end')}}" id="form6Example1" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example1">Course</label>
+                                    <input type="text" name="course" list="browserscourse" value="{{old('course')}}" id="form6Example1" class="form-control" />
+                                    <datalist id="browserscourse">
+                                        @foreach($course as $cou)
+                                        <option value="{{$cou->title}}"></option>
+                                        @endforeach
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example1">City</label>
+                                    <input class="form-control" list="browserscity" name="city" value="{{old('city')}}">
+                                    <datalist id="browserscity">
+                                        @foreach($city as $ci)
+                                        <option value="{{$ci->city}}"></option>
+                                        @endforeach
+                                    </datalist>
+                                </div>
+                            </div>
+                            <!-- Submit button -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block mb-4">Search</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @if($order->isNotEmpty())
 <div class="table-responsive pt-4 pb-4">
     <table class="table table-bordered">
@@ -18,6 +69,7 @@
             <th scope="col">city</th>
             <th scope="col">educational qualification</th>
             <th scope="col">course</th>
+            <th scope="col">order date</th>
             <th scope="col">action</th>
         </tr>
     </thead>
@@ -31,6 +83,7 @@
                 <td class="align-middle">{{$ord->city}}</td>
                 <td class="align-middle">{{$ord->educational_qualification}}</td>
                 <td class="align-middle">{{$ord->Courses->title}}</td>
+                <td class="align-middle">{{date('Y-m-d H:i:s', strtotime($ord->order_date)) }}</td>
                 <td class="align-middle">
                 <button class="btn btn-danger deleteRecord title_action" data-title="delete" data-id="{{ $ord->id }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
@@ -42,6 +95,12 @@
 <div class="row pb-4 pt-2">
     <div class="col-12">
         {{ $order->links('web.dashborad.pagination.custom') }}
+    </div>
+</div>
+@else
+<div class="row pb-4 pt-2">
+    <div class="col-12">
+        <h1>not found</h1>
     </div>
 </div>
 @endif
