@@ -10918,6 +10918,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 4px gainsboro;
   padding: 5px 10px;
   display: none;
+  overflow: hidden;
 }
 
 .subtitle_active{
@@ -10939,6 +10940,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 4px gainsboro;
   padding: 5px 10px;
   display: none;
+  overflow: hidden;
 }
 
 .subtitleview_active{
@@ -10960,7 +10962,11 @@ textarea.form-control-lg {
 }
 
 
-
+@media (max-width:426px){
+  .subtitle{
+    left: 50%;
+  }
+}
 
 .title_action{
   position: relative;
@@ -10980,4 +10986,30 @@ textarea.form-control-lg {
   padding: 5px 10px;
   text-align: center;
   width: max-content;
+}
+
+
+.close_form{
+  position: relative;
+  top: -5px;
+  left: 93%;
+  width: 30px;
+  height: 30px;
+  border-bottom-left-radius: 4px;
+  background-color: #fc0303;
+  color: #000;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.close_form >span{
+  position: relative;
+  top: -1px;
+  left: 33%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 20px;
+}
+
+.close_form:hover{
+  background-color: #ff0000;
 }

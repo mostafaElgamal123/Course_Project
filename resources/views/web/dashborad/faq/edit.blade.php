@@ -30,7 +30,7 @@
                 <select name="course_id" value="{{$faq->course_id}}" class="form-select">
                 <option value="0" disabled="true" selected="true">-Select-</option>
                     @foreach($course as $cour)
-                    <option value="{{$cour->id}}">{{$cour->title}}</option>
+                    <option value="{{$cour->id}}" @if($cour->id==$faq->course_id) selected @endif>{{$cour->title}}</option>
                     @endforeach
                 </select>
             </div>

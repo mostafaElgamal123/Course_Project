@@ -1,6 +1,7 @@
 
 
 <div class="subtitleview">
+<div class="close_form"><span>x</span></div>
     <h4 id="title"></h4>
     <div class="table-responsive pt-4 pb-4">
         <table class="table table-bordered">

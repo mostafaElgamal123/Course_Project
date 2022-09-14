@@ -26,7 +26,7 @@
                 <select name="course_id" value="{{$review->course_id}}" class="form-select">
                 <option value="0" disabled="true" selected="true">-Select-</option>
                     @foreach($course as $cour)
-                    <option value="{{$cour->id}}">{{$cour->title}}</option>
+                    <option value="{{$cour->id}}" @if($cour->id==$review->course_id) selected @endif>{{$cour->title}}</option>
                     @endforeach
                 </select>
             </div>

@@ -1,6 +1,6 @@
 <div class="subtitle">
+    <div class="close_form"><span>x</span></div>
     <div class="row pt-4 pb-4 ">
-        @include('web.dashborad.layout.message')
         <div class="col-12">
         <div class="alterSuccessletter">
 

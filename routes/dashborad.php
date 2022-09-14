@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\Web\Dashborad\{DashboradController,CategoryDashController,CourseDashController,TitleDashController,SubTitleDashController,OrderDashControlle,FaqDashControlle,ReviewImageDashController,ReviewVideoDashController,CityDashController};
+use App\Http\Controllers\Web\Dashborad\{SearchOrderDashController,DashboradController,CategoryDashController,CourseDashController,TitleDashController,SubTitleDashController,OrderDashControlle,FaqDashControlle,ReviewImageDashController,ReviewVideoDashController,CityDashController};
 use App\Http\Controllers\{RoleControlle,UserController};
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
@@ -16,5 +16,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/reviewimages',ReviewImageDashController::class);
     Route::resource('/reviewvideos',ReviewVideoDashController::class);
     Route::resource('/cities',CityDashController::class);
+    Route::resource('/ordersearch',SearchOrderDashController::class);
 });
 

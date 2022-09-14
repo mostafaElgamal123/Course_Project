@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Course;
 use App\Models\City;
+use Illuminate\Pipeline\Pipeline;
+use App\Filters\StartAndEndFilter;
+use App\Filters\StartFilter;
+use App\Filters\EndFilter;
+use App\Filters\CourseFilter;
+use App\Filters\CityFilter;
 class OrderDashControlle extends Controller
 {
     function __construct()
@@ -21,11 +27,167 @@ class OrderDashControlle extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $order=Order::with('courses')->paginate(6);
+        if($request->start!=null&&$request->end==null&&$request->course==null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    StartFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+
+        }elseif($request->start==null&&$request->end!=null&&$request->course==null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    EndFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+
+        }elseif($request->start==null&&$request->end==null&&$request->course!=null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    CourseFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+
+        }elseif($request->start==null&&$request->end==null&&$request->course==null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    CityFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+
+        }elseif($request->start!=null&&$request->end!=null&&$request->course==null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    StartAndEndFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start!=null&&$request->end==null&&$request->course!=null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    StartFilter::class,
+                    CourseFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start!=null&&$request->end==null&&$request->course==null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    StartFilter::class,
+                    CityFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start==null&&$request->end!=null&&$request->course!=null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    EndFilter::class,
+                    CourseFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start==null&&$request->end!=null&&$request->course==null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    EndFilter::class,
+                    CityFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start==null&&$request->end==null&&$request->course!=null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    CourseFilter::class,
+                    CityFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start==null&&$request->end!=null&&$request->course!=null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    EndFilter::class,
+                    CourseFilter::class,
+                    CityFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start!=null&&$request->end!=null&&$request->course!=null&&$request->city==null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    CourseFilter::class,
+                    StartAndEndFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start!=null&&$request->end==null&&$request->course!=null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    StartFilter::class,
+                    CourseFilter::class,
+                    CityFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+            
+        }elseif($request->start!=null&&$request->end!=null&&$request->course==null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    CityFilter::class,
+                    StartAndEndFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+        }elseif($request->start!=null&&$request->end!=null&&$request->course!=null&&$request->city!=null){
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                    CourseFilter::class,
+                    CityFilter::class,
+                    StartAndEndFilter::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+        }else{
+            $order=app(Pipeline::class)
+                ->send(Order::query())
+                ->through([
+                ])
+                ->thenReturn()
+                ->paginate(6);        
+        }
+
         return view('web.dashborad.orders.index',[
-            'order'=>Order::with('courses')->paginate(6),
+            'order'=>$order,
+            'city'=>City::all(),
+            'course'=>Course::all(),
         ]);
     }
     /**
