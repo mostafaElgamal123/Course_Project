@@ -4,7 +4,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				<div class="text-center">
-					<h1 class="rounded-pill p-3 fw-bolder text-white">
+					<h1 class="title_course rounded-pill p-3 fw-bolder text-white">
 						{{$course->title}}
 					</h1>
 					<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
@@ -24,7 +24,7 @@
 	<div class="pt-5 pb-5 container">
 		<div class="row g-4 align-self-stretch">
 			<div class="col-12">
-				<h3 class="text-center p-2">@if(isset($changeconstant->title_section_content)) {{$changeconstant->title_section_content}} @endif</h3>
+				<h3 class="text-center p-2 title_style">@if(isset($changeconstant->title_section_content)) {{$changeconstant->title_section_content}} @endif</h3>
 			</div>
 			@foreach($course->titles as $title)
 			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex">
@@ -57,12 +57,12 @@
 						<?php echo $course->review_video; ?>
 					</div>
 					<div class="col-lg-6 col-md-12">
-						<h2 class="text-primary p-2 text-center">@if(isset($changeconstant->title_video1)) {{$changeconstant->title_video1}} @endif</h2>
+						<h2 class="text-primary p-2 text-center title-color">@if(isset($changeconstant->title_video1)) {{$changeconstant->title_video1}} @endif</h2>
 					</div>
 				</div>
 
 				<div class="pt-5 pb-5">
-					<h2 class="text-center pt-3 pb-3 text-primary fw-bold">
+					<h2 class="text-center pt-3 pb-3 text-primary fw-bold title-color">
 					@if(isset($changeconstant->title_video2))  {{$changeconstant->title_video2}} @endif
 					</h2>
 					<div class="row">
@@ -112,7 +112,7 @@
 		
 			<section class="bg-2 review">
 					<div class="sec4 text-center pb-5 pt-5 ">
-						<h2 class="fw-bolder text-primary">
+						<h2 class="fw-bolder text-primary title-color">
 						@if(isset($changeconstant->title_section_review))   {{$changeconstant->title_section_review}} @endif
 						</h2>
 						<span><i class="fas fa-star"></i></span>
@@ -160,13 +160,13 @@
 			 <section class="bg-1 faq">
 				<div class="container">
 					<!-- Display the countdown timer in an element -->
-						<h1 class="rounded-pill p-3 fw-bolder text-primary text-center">
+						<h1 class="rounded-pill p-3 fw-bolder text-primary title-color text-center">
 						@if(isset($changeconstant->title_form_offer)) {{$changeconstant->title_form_offer}} @endif {{$course->price}} جنيه بدلا من <?php echo($course->price+$course->offer); ?>
 						</h1>
 						<!-- end section7 -->
 						<!-- start footer -->
 						<section id="form" class="border border-primary mb-2 p-4">
-							<p class="fw-bolder text-center">  @if(isset($changeconstant->title_form)) {{$changeconstant->title_form}} @endif </p>
+							<p class="fw-bolder text-center title_form_style">  @if(isset($changeconstant->title_form)) {{$changeconstant->title_form}} @endif </p>
 								<div class="row g-3 align-self-stretch">
 								<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 col-12 d-flex">
 										<form  id="OrderForm" class="w-100 ">
@@ -207,7 +207,7 @@
 												<div class="alterError5"></div>
 											</div>
 											<input type="hidden" id="course_id" value="{{$course->id}}" class="form-control save border-dark" id="exampleInputPassword1">
-											<button type="submit" class="btn w-100 btn-primary">@if(isset($changeconstant->submit_form)) {{$changeconstant->submit_form}} @endif</button>
+											<button type="submit" class="btn w-100 btn-primary btn_form">@if(isset($changeconstant->submit_form)) {{$changeconstant->submit_form}} @endif</button>
 										</form>
 									</div>
 									<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 col-12 d-flex">

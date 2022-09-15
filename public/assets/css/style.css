@@ -18,7 +18,8 @@ img,iframe{
 .main-btn{
     background-color: #005daa;
     color: rgb(255, 255, 255);
-    padding: .5rem 1rem ;
+    padding: 9px 16px;
+    padding-top: 6px;
     font-weight: bold;
 }
 .main-btn:hover{
@@ -363,5 +364,43 @@ footer input{
   }
   .style_mobile{
     margin: auto;
+  }
+}
+
+@media (max-width:376px) {
+  .hidden_mobile{
+    display: none;
+  }
+  .style_mobile{
+    margin: auto;
+  }
+}
+
+.title-color{
+  color: #005daa !important;
+}
+
+.btn_form{
+  background-color: #005daa;
+  font-size: 18px;
+  transition: 0.5s;
+}
+.btn_form:hover{
+  background-color: #0171cc;
+}
+.title_style{
+  font-size: 25px;
+  color: #005daa;
+  font-weight: 900;
+}
+
+.title_form_style{
+  font-size: 22px;
+  color: #005daa;
+  font-weight: 700;
+}
+@media (max-width:321px) {
+  .title_course{
+    font-size: 20px;
   }
 }
