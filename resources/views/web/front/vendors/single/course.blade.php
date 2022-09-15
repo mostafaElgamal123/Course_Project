@@ -178,22 +178,22 @@
 											</div>
 											<div class="mb-3">
 												<label for="exampleInputEmail1" class="form-label">الاسم <span style="color:red; font-size:25px;">*</span></label>
-												<input type="text" id="name" class="form-control border-dark" id="exampleInputEmail1" aria-describedby="emailHelp">
+												<input type="text" id="name" class="form-control save border-dark" id="exampleInputEmail1" aria-describedby="emailHelp">
 												<div class="alterError1"></div>
 											</div>
 											<div class="mb-3">
 												<label for="exampleInputPassword1" class="form-label">الرقم <span style="color:red; font-size:25px;">*</span></label>
-												<input type="text" id="phone" class="form-control border-dark" id="exampleInputPassword1">
+												<input type="text" id="phone" class="form-control save border-dark" id="exampleInputPassword1">
 												<div class="alterError2"></div>
 											</div>
 											<div class="mb-3">
 												<label for="exampleInputPassword1" class="form-label">البريد الالكتروني <span style="color:red; font-size:25px;">*</span></label>
-												<input type="email" id="email" class="form-control border-dark" id="exampleInputPassword1">
+												<input type="email" id="email" class="form-control save border-dark" id="exampleInputPassword1">
 												<div class="alterError3"></div>
 											</div>
 											<div class="mb-3">
 												<label class="form-label">المحافظه <span style="color:red; font-size:25px;">*</span></label>
-												<select id="city_id" name="city_id" value="{{old('city_id')}}" class="form-select border-dark ">
+												<select id="city_id" name="city_id" value="{{old('city_id')}}" class="save form-select border-dark ">
 													<option value="0" disabled="true" selected="true">-Select-</option>
 													@foreach($city as $cit)
 													<option value="{{$cit->id}}">{{$cit->city}}</option>
@@ -203,10 +203,10 @@
 											</div>
 											<div class="mb-3">
 												<label for="exampleInputPassword1" class="form-label"> المؤهل الدراسي <span style="color:red; font-size:25px;">*</span></label>
-												<input type="text" id="educational_qualification" class="form-control border-dark" id="exampleInputPassword1">
+												<input type="text" id="educational_qualification" class="form-control save border-dark" id="exampleInputPassword1">
 												<div class="alterError5"></div>
 											</div>
-											<input type="hidden" id="course_id" value="{{$course->id}}" class="form-control border-dark" id="exampleInputPassword1">
+											<input type="hidden" id="course_id" value="{{$course->id}}" class="form-control save border-dark" id="exampleInputPassword1">
 											<button type="submit" class="btn w-100 btn-primary">@if(isset($changeconstant->submit_form)) {{$changeconstant->submit_form}} @endif</button>
 										</form>
 									</div>
@@ -297,8 +297,14 @@
 			$('.alterError5').append(opError2);
         }
       },
-      beforeSend: function() { $('#ring_apply').show(); },
-      complete: function() { $('#ring_apply').hide(); }
+      beforeSend: function() { 
+		$('#ring_apply').show();
+		$(".save").attr("disabled", true);
+	 },
+      complete: function() { 
+		$('#ring_apply').hide();
+		$(".save").attr("disabled", false);
+	 }
       });
     });
 </script>
