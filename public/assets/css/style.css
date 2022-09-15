@@ -6,8 +6,13 @@ body{
 }
 
 img,iframe{
-  max-width: 150px;
-  height: 50px;
+    max-width: 100%;
+}
+
+.navbar-brand img
+{
+    max-width: 150px;
+    height: 50px;
 }
 
 .main-btn{
