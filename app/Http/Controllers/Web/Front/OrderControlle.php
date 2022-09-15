@@ -17,6 +17,7 @@ class OrderControlle extends Controller
     public function store(OrderRequest $request)
     {
         $request->validated();
+        $request['order_date'] = time();
         $order=Order::create($request->all());
         return response()->json(['success'=>'Thank you for Apply Now. we will contact you shortly.']);
     }
