@@ -38,4 +38,7 @@ class Course extends Model
     public function reviews(){
         return $this->hasMany(Review::class,'course_id');
     }
+    public function cards(){
+        return $this->hasMany(Card::class,'course_id');
+    }
 }

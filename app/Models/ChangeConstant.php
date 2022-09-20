@@ -17,6 +17,7 @@ class ChangeConstant extends Model
         'title_section_review',
         'title_form',
         'title_form_offer',
-        'submit_form'
+        'submit_form',
+        'title_card'
     ];
 }

@@ -65,6 +65,10 @@ class PermissionTableSeeder extends Seeder
            'changeconstant-create',
            'changeconstant-edit',
            'changeconstant-delete',
+           'card-list',
+           'card-create',
+           'card-edit',
+           'card-delete',
         ];
      
         foreach ($permissions as $permission) {

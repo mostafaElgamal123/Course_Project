@@ -19,12 +19,12 @@
 <!-- end header  -->
 
 <!-- Start section1 -->
-
+@if($course->titles->isNotEmpty())
 <section dir="ltr" class="bg-1">	
 	<div class="pt-5 pb-5 container">
 		<div class="row g-4 align-self-stretch">
 			<div class="col-12">
-				<h3 class="text-center p-2 title_style">@if(isset($changeconstant->title_section_content)) {{$changeconstant->title_section_content}} @endif</h3>
+				<h3 class="text-center p-2 title_style under_line">@if(isset($changeconstant->title_section_content)) {{$changeconstant->title_section_content}} @endif</h3>
 			</div>
 			@foreach($course->titles as $title)
 			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex">
@@ -47,6 +47,7 @@
 		</div>
 	</div>
 </section>
+@endif
 <!-- End section1 -->
 
 		<!-- Start section2 -->
@@ -77,6 +78,7 @@
 
 
 		<!-- start accordion  -->
+		@if($course->faqs->isNotEmpty())
 		<section class="bg-1 faq">
 			<div class="container">
 				<div class="text-center pb-2">
@@ -103,16 +105,17 @@
 				</div>
 			</div>
 		</section>
+		@endif
 		<!-- end accordion  -->
 
 	   
 		<!-- End section3 -->
 
 		<!-- Start section4 -->
-		
-			<section class="bg-2 review">
+		@if($course->reviews->isNotEmpty())
+			<section class="bg-1 review">
 					<div class="sec4 text-center pb-5 pt-5 ">
-						<h2 class="fw-bolder text-primary title-color">
+						<h2 class="fw-bolder text-primary under_line title-color">
 						@if(isset($changeconstant->title_section_review))   {{$changeconstant->title_section_review}} @endif
 						</h2>
 						<span><i class="fas fa-star"></i></span>
@@ -154,14 +157,48 @@
 						</div>
 					</div>
 			</section>
+		@endif
 			<!-- end section6 -->
-
+			<!-- section previous work -->
+			@if($course->cards->isNotEmpty())
+				<section class="previous_work">
+					<div class="container-fluid">
+						<div class="row mx-0 justify-content-center pt-5">
+							<div class="col-lg-6">
+								<div class="section-title text-center position-relative mb-4">
+									<h3 class="position-relative text-uppercase pb-2 title_style under_line">@if(isset($changeconstant->title_card))   {{$changeconstant->title_card}} @endif</h3>
+								</div>
+							</div>
+						</div>
+						<div class="owl-carousel courses-carousel">
+							@foreach($course->cards as $card)
+							<div class="courses-item position-relative">
+								<img class="img-fluid" src="{{asset('storage/'.$card->image)}}" alt="">
+								<div class="courses-text">
+									<h4 class="text-center text-white px-3">{{$card->description}}</h4>
+									<div class="border-top w-100 mt-3">
+										<div class="d-flex justify-content-between p-4">
+											<span class="text-white"><i class="fa fa-user me-2"></i>{{$card->name}} </span>
+											<span class="text-white"><i class="fa fa-star me-1"></i>{{$card->rating}} </span>
+										</div>
+									</div>
+									<div class="w-100 bg-2 text-center p-4" >
+										<a class="btn btn-primary" href="{{$card->url}}">View Project</a>
+									</div>
+								</div>
+							</div>
+							@endforeach
+						</div>
+					</div>
+				</section>
+			@endif
+			<!-- end section previous work -->
 	         <!-- Start section7 -->
 			 <section class="bg-1 faq">
 				<div class="container">
 					<!-- Display the countdown timer in an element -->
 						<h1 class="rounded-pill p-3 fw-bolder text-primary title-color text-center">
-						@if(isset($changeconstant->title_form_offer)) {{$changeconstant->title_form_offer}} @endif {{$course->price}} جنيه بدلا من <?php echo($course->price+$course->offer); ?>
+						@if(isset($changeconstant->title_form_offer)) {{$changeconstant->title_form_offer}} @endif <span class="color-price">{{$course->price}}</span> جنيه بدلا من <span class="color-price"><?php echo($course->price+$course->offer); ?></span>
 						</h1>
 						<!-- end section7 -->
 						<!-- start footer -->
@@ -221,6 +258,9 @@
 						<!-- end footer -->
 				</div>
 			 </section>
+
+			 <!-- Back to Top -->
+			 <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 			 <footer>
 				<div class="copyriht text-center">
 					 2022 All Rights Reserved. Developed By  © <a href="https://www.eraasoft.com"><strong>EraaSoft</strong></a>

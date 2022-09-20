@@ -29,7 +29,7 @@ class CourseController extends Controller
      */
     public function show($slug)
     {
-        $course=Course::with('titles','faqs','reviews')->where('slug',$slug)->first();
+        $course=Course::with('titles','faqs','reviews','cards')->where('slug',$slug)->first();
         $city=City::all();
         $changeconstant=ChangeConstant::first();
         return view('web.front.single.single',compact('course','city','changeconstant'));

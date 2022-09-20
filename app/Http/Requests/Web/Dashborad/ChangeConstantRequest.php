@@ -32,6 +32,7 @@ class ChangeConstantRequest extends FormRequest
             'title_form'              =>'required|min:3|max:300',
             'title_form_offer'        =>'required|min:3|max:400',
             'submit_form'             =>'required|min:3|max:150',
+            'title_card'              =>'required|min:3|max:400',
         ];
     }
 }

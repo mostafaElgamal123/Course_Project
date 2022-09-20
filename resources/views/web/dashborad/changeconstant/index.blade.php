@@ -35,6 +35,10 @@
                 <input type="text" name="title_section_review" value="{{old('title_section_review')}}" class="form-control">
             </div>
             <div class="col-md-6 col-12">
+                <label class="form-label">title card</label>
+                <input type="text" name="title_card" value="{{old('title_card')}}" class="form-control">
+            </div>
+            <div class="col-md-6 col-12">
                 <label class="form-label">title for form</label>
                 <input type="text" name="title_form" value="{{old('title_form')}}" class="form-control">
             </div>
@@ -42,7 +46,7 @@
                 <label class="form-label">title form offer</label>
                 <input type="text" name="title_form_offer" value="{{old('title_form_offer')}}" class="form-control">
             </div>
-            <div class="col-md-6 col-12">
+            <div class="col-md-12 col-12">
                 <label class="form-label">submit form content</label>
                 <input type="text" name="submit_form" value="{{old('submit_form')}}" class="form-control">
             </div>
