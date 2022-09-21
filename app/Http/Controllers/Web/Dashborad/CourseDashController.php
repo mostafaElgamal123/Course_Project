@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\City;
+use App\Models\ChangeConstant;
 use App\Http\Requests\Web\Dashborad\CourseRequest;
 use App\Http\Requests\Web\Dashborad\CourseUpdateRequest;
 use Storage;
@@ -66,7 +68,19 @@ class CourseDashController extends Controller
         return back()->with('success','date added successfully');
     }
 
-     
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function test()
+    {
+        $course=Course::with('titles','faqs','reviews','cards')->first();
+        $city=City::all();
+        $changeconstant=ChangeConstant::first();
+        return view('web.front.single.single',compact('course','city','changeconstant'));
+    }
 
     /**
      * Show the form for editing the specified resource.

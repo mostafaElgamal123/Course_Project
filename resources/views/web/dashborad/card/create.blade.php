@@ -3,12 +3,12 @@
 
 @section('title','create')
 
-@section('breadcrumb','add card')
+@section('breadcrumb','add student samples')
 
 @section('content')
 
 <a href="{{url('/cards')}}" class="btn btn-info">
-    view cards
+    view student samples
 </a>
 
 <div class="row pt-4 pb-4">

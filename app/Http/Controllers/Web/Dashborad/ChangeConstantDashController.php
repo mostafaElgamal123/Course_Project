@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Dashborad;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ChangeConstant;
+use App\Models\Course;
 use App\Http\Requests\Web\Dashborad\ChangeConstantRequest;
 class ChangeConstantDashController extends Controller
 {
@@ -22,12 +23,14 @@ class ChangeConstantDashController extends Controller
      */
     public function index()
     {
+        $course=Course::all();
         $changeconstant=ChangeConstant::all();
         if($changeconstant->count()<=0){
-            return view('web.dashborad.changeconstant.index',compact('changeconstant'));
+            return view('web.dashborad.changeconstant.index',compact('changeconstant','course'));
         }else{
+            $course=Course::all();
             $changeconstant=ChangeConstant::first();
-            return view('web.dashborad.changeconstant.update',compact('changeconstant'));
+            return view('web.dashborad.changeconstant.update',compact('changeconstant','course'));
         }
     }
 
@@ -40,9 +43,10 @@ class ChangeConstantDashController extends Controller
      */
     public function store(ChangeConstantRequest $request)
     {
+        $course=Course::all();
         $request->validated();
         $changeconstant=ChangeConstant::create($request->all());
-        return view('web.dashborad.changeconstant.update',compact('changeconstant'));
+        return view('web.dashborad.changeconstant.update',compact('changeconstant','course'));
     }
 
 
@@ -55,8 +59,9 @@ class ChangeConstantDashController extends Controller
      */
     public function update(ChangeConstantRequest $request,ChangeConstant $changeconstant)
     {
+        $course=Course::all();
         $request->validated();
         $changeconstant->update($request->all());
-        return view('web.dashborad.changeconstant.update',compact('changeconstant'));
+        return view('web.dashborad.changeconstant.update',compact('changeconstant','course'));
     }
 }

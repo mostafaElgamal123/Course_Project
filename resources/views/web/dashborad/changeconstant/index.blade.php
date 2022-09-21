@@ -35,7 +35,7 @@
                 <input type="text" name="title_section_review" value="{{old('title_section_review')}}" class="form-control">
             </div>
             <div class="col-md-6 col-12">
-                <label class="form-label">title card</label>
+                <label class="form-label">title student samples</label>
                 <input type="text" name="title_card" value="{{old('title_card')}}" class="form-control">
             </div>
             <div class="col-md-6 col-12">
@@ -54,5 +54,11 @@
         </form>
     </div>
 </div>
-
+@if($course->isNotEmpty())
+<div class="row p-4">
+    <div class="col-12">
+    <a href="{{url('/testshowone/')}}" class="btn btn-primary title_action ms-2"data-title="show course data"><i class="fa fa-eye"></i></a>
+    </div>
+</div>
+@endif
 @endsection
