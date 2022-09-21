@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\Web\Dashborad\{ChangeConstantDashController,SearchOrderDashController,DashboradController,CategoryDashController,CourseDashController,TitleDashController,SubTitleDashController,OrderDashControlle,FaqDashControlle,ReviewImageDashController,ReviewVideoDashController,CityDashController};
+use App\Http\Controllers\Web\Dashborad\{CardDashController,ChangeConstantDashController,SearchOrderDashController,DashboradController,CategoryDashController,CourseDashController,TitleDashController,SubTitleDashController,OrderDashControlle,FaqDashControlle,ReviewImageDashController,ReviewVideoDashController,CityDashController};
 use App\Http\Controllers\{RoleControlle,UserController};
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
@@ -18,5 +18,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/cities',CityDashController::class);
     Route::resource('/ordersearch',SearchOrderDashController::class);
     Route::resource('/changeconstants',ChangeConstantDashController::class);
+    Route::resource('/cards',CardDashController::class);
 });
 

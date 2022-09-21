@@ -59,14 +59,6 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a href="{{url('/changeconstants')}}" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>
-                    constant Page
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="{{url('/categories')}}" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>
@@ -182,12 +174,43 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Card
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('/cards/create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Card</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/cards')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Cards</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
             <a href="{{url('/orders')}}" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
                    Orders
                 </p>
                 <span class="badge badge-warning navbar-badge">{{Order::all()->count()}}</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{url('/changeconstants')}}" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Setting Page
+                </p>
             </a>
         </li>
     </ul>
