@@ -223,7 +223,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
-                Famous Programmers
+                Famous Program
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -231,13 +231,13 @@
                 <li class="nav-item">
                     <a href="{{url('/famousprogrammers/create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Add Famous Programmers</p>
+                        <p>Add Famous Program</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/famousprogrammers')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>View Famous Programmers</p>
+                        <p>View Famous Program</p>
                     </a>
                 </li>
             </ul>
