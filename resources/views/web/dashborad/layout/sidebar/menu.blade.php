@@ -197,6 +197,52 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Course Features
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('/coursefeatures/create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Course Features</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/coursefeatures')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Course Features</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Famous Programmers
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('/famousprogrammers/create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Famous Programmers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/famousprogrammers')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Famous Programmers</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
             <a href="{{url('/orders')}}" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>

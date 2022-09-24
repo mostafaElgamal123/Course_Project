@@ -18,7 +18,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">description</label>
-                <input type="text" name="description" value="{{old('description')}}" class="form-control">
+                <input type="text" name="description" id="mytextarea" value="{{old('description')}}" class="form-control">
             </div>
             <div class="mb-3">
                 <input type="hidden" name="course_id" value="{{$course->id}}" class="form-control">

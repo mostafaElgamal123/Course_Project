@@ -504,3 +504,37 @@ footer input{
   background-color: #f8f9fa;
   padding-bottom: 100px;
 }
+
+.success_cover{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.success_cover .content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #3c3c3c;
+  text-align: center;
+}
+.success_cover .content >h1{
+  color: #0f5132;
+  margin-bottom: 30px;
+}
+
+.success_cover .content >p{
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  color: black;
+}
+
+.success_cover .content >p >span{
+  color: #0171cc;
+  margin-right: 15px;
+}

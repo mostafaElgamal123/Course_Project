@@ -18,6 +18,8 @@ class ChangeConstant extends Model
         'title_form',
         'title_form_offer',
         'submit_form',
-        'title_card'
+        'title_card',
+        'title_coursefeature',
+        'title_famousprogrammer'
     ];
 }

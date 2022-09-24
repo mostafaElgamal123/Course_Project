@@ -41,4 +41,7 @@ class Course extends Model
     public function cards(){
         return $this->hasMany(Card::class,'course_id');
     }
+    public function coursefeatures(){
+        return $this->hasMany(CourseFeature::class,'course_id');
+    }
 }

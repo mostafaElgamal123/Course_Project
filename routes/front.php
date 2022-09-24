@@ -11,6 +11,10 @@ Route::get('/', function () {
 Route::get('course',[CourseController::class,'index'])->name('course');
 Route::get('courses/{course}',[CourseController::class,'show']);
 
-
 //Order
 Route::post('orders',[OrderControlle::class,'store']);
+
+//success
+Route::get('success',function(){
+    return view('web.front.success.success');
+})->name('success');

@@ -69,6 +69,14 @@ class PermissionTableSeeder extends Seeder
            'card-create',
            'card-edit',
            'card-delete',
+           'coursefeature-list',
+           'coursefeature-create',
+           'coursefeature-edit',
+           'coursefeature-delete',
+           'famousprogrammer-list',
+           'famousprogrammer-create',
+           'famousprogrammer-edit',
+           'famousprogrammer-delete',
         ];
      
         foreach ($permissions as $permission) {

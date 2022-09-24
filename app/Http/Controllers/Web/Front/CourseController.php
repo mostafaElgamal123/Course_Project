@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\City;
 use App\Models\ChangeConstant;
+use App\Models\FamousProgrammer;
 class CourseController extends Controller
 {
     /**
@@ -29,9 +30,10 @@ class CourseController extends Controller
      */
     public function show($slug)
     {
-        $course=Course::with('titles','faqs','reviews','cards')->where('slug',$slug)->first();
+        $course=Course::with('titles','faqs','reviews','cards','coursefeatures')->where('slug',$slug)->first();
         $city=City::all();
+        $famousprogrammer=FamousProgrammer::all();
         $changeconstant=ChangeConstant::first();
-        return view('web.front.single.single',compact('course','city','changeconstant'));
+        return view('web.front.single.single',compact('course','city','changeconstant','famousprogrammer'));
     }
 }

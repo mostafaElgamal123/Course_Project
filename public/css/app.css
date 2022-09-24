@@ -10906,8 +10906,8 @@ textarea.form-control-lg {
 
 .subtitle{
   position: absolute;
-  top: 34%;
-  left: 55%;
+  top: 50%;
+  left: 50%;
   width: 300px;
   height: auto;
   transform: translateX(-50%) translateY(-50%);
@@ -10928,7 +10928,7 @@ textarea.form-control-lg {
 
 .subtitleview{
   position: absolute;
-  top: 34%;
+  top: 50%;
   left: 50%;
   width: 500px;
   height: auto;
@@ -10962,11 +10962,6 @@ textarea.form-control-lg {
 }
 
 
-@media (max-width:426px){
-  .subtitle{
-    left: 50%;
-  }
-}
 
 .title_action{
   position: relative;

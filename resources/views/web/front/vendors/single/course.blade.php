@@ -7,10 +7,10 @@
 					<h1 class="title_course rounded-pill p-3 fw-bolder text-white">
 						{{$course->title}}
 					</h1>
-					<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
+					<?php echo $course->description; ?>
+					<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
 					@if(isset($changeconstant->enrollnow)) {{$changeconstant->enrollnow}} @endif
 					</a>
-					<?php echo $course->description; ?>
 				</div>
 			</div>
 		</div>
@@ -20,14 +20,15 @@
 
 <!-- Start section1 -->
 @if($course->titles->isNotEmpty())
-<section dir="ltr" class="bg-1">	
+<section dir="ltr" class="bg-2">	
 	<div class="pt-5 pb-5 container">
 		<div class="row g-4 align-self-stretch">
 			<div class="col-12">
 				<h3 class="text-center p-2 title_style under_line">@if(isset($changeconstant->title_section_content)) {{$changeconstant->title_section_content}} @endif</h3>
 			</div>
 			@foreach($course->titles as $title)
-			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex">
+			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column">
+				<?php echo $title->description; ?>
 				<div class="card_box">
 					<h3><strong>{{$title->title}}</strong></h3>
 					<ul class="list-unstyled px-0">
@@ -41,7 +42,7 @@
 		</div>
 		
 		<div class="text-center pb-5 pt-5">
-			<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
+			<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
 			@if(isset($changeconstant->enrollnow)) {{$changeconstant->enrollnow}} @endif
 			</a>
 		</div>
@@ -49,9 +50,49 @@
 </section>
 @endif
 <!-- End section1 -->
-
+@if($course->coursefeatures->isNotEmpty())
+        <!--course features-->
+		<section dir="ltr" class="bg-1">	
+			<div class="pt-5 pb-5 container">
+				<div class="row g-2 align-self-stretch">
+					<div class="col-12">
+						<h3 class="text-center p-2 title_style under_line">@if(isset($changeconstant->title_coursefeature)) {{$changeconstant->title_coursefeature}} @endif</h3>
+					</div>
+					@foreach($course->coursefeatures as $coursefeatu)
+					<div class="col-12 d-flex flex-column justify-content-center">
+						<p class="text-center fs-5">{{$coursefeatu->title}}</p>
+						<?php echo $coursefeatu->description ?>
+					</div>
+					@endforeach
+				</div>
+			</div>
+		</section>
+		<!--end course features-->
+@endif
+<!-- section famous programmers -->
+@if($famousprogrammer->isNotEmpty())
+			<section class="previous_work bg-2">
+				<div class="container-fluid">
+					<div class="row mx-0 justify-content-center pt-5">
+						<div class="col-lg-6">
+							<div class="section-title text-center position-relative mb-4">
+								<h3 class="position-relative text-uppercase pb-2 title_style under_line">@if(isset($changeconstant->title_famousprogrammer))   {{$changeconstant->title_famousprogrammer}} @endif</h3>
+							</div>
+						</div>
+					</div>
+					<div class="owl-carousel courses-carousel">
+						@foreach($famousprogrammer as $famousprogram)
+						<div class="courses-item position-relative">
+							<img class="img-fluid" src="{{asset('storage/'.$famousprogram->image)}}" alt="">
+						</div>
+						@endforeach
+					</div>
+				</div>
+			</section>
+@endif
+			<!-- end section famous programmers -->
 		<!-- Start section2 -->
-		<section class="bg-2 review">
+		<section class="bg-1 review">
 			<div class="container">
 				<div class="row sec-vedio">
 					<div class="col-lg-6 col-md-12">
@@ -79,10 +120,10 @@
 
 		<!-- start accordion  -->
 		@if($course->faqs->isNotEmpty())
-		<section class="bg-1 faq">
+		<section class="bg-2 faq">
 			<div class="container">
 				<div class="text-center pb-2">
-					<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
+					<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
 					@if(isset($changeconstant->enrollnow))  {{$changeconstant->enrollnow}} @endif
 					</a>
 					</div>
@@ -142,7 +183,7 @@
 					<!-- start section6 -->
 					<div class="container">
 						<div class="text-center pb-5">
-								<a href="#form"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
+								<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
 								@if(isset($changeconstant->enrollnow))	{{$changeconstant->enrollnow}} @endif
 						</a>
 						</div>
@@ -194,7 +235,7 @@
 			@endif
 			<!-- end section previous work -->
 	         <!-- Start section7 -->
-			 <section class="bg-1 faq">
+			 <section class="bg-1 faq" id="formview">
 				<div class="container">
 					<!-- Display the countdown timer in an element -->
 						<h1 class="rounded-pill p-3 fw-bolder text-primary title-color text-center">
@@ -222,6 +263,11 @@
 												<label for="exampleInputPassword1" class="form-label">الرقم <span style="color:red; font-size:25px;">*</span></label>
 												<input type="text" id="phone" class="form-control save border-dark" id="exampleInputPassword1">
 												<div class="alterError2"></div>
+											</div>
+											<div class="mb-3">
+												<label for="exampleInputPassword1" class="form-label">   الرقم 2<span style="color:red; font-size:25px;">*</span></label>
+												<input type="text" id="phone2" class="form-control save border-dark" id="exampleInputPassword1">
+												<div class="alterError6"></div>
 											</div>
 											<div class="mb-3">
 												<label for="exampleInputPassword1" class="form-label">البريد الالكتروني <span style="color:red; font-size:25px;">*</span></label>
@@ -272,6 +318,7 @@
 
     let name = $('#name').val();
     let phone = $('#phone').val();
+	let phone2 = $('#phone2').val();
     let email = $('#email').val();
 	let city_id = $('#city_id').val();
     let educational_qualification = $('#educational_qualification').val();
@@ -282,6 +329,7 @@
 	var opError3=" ";
 	var opError4=" ";
 	var opError5=" ";
+	var opError6=" ";
     $.ajax({
       url: "{{url('orders')}}",
       type:"post",
@@ -289,6 +337,7 @@
         "_token": "{{ csrf_token() }}",
         name:name,
         phone:phone,
+		phone2:phone2,
         email:email,
 		city_id:city_id,
         educational_qualification:educational_qualification,
@@ -298,15 +347,17 @@
         if(response){
           $("#OrderForm")[0].reset(); 
           //console.log(data);
-        opSuccess+='<div class="alert alert-success">'+response.success+'</div>';
+        //opSuccess+='<div class="alert alert-success">'+response.success+'</div>';
 		$('.alterError1').html(" ");
 		$('.alterError2').html(" ");
 		$('.alterError3').html(" ");
 		$('.alterError4').html(" ");
 		$('.alterError5').html(" ");
+		$('.alterError6').html(" ");
         $('.alterSuccess').html(" ");
         $('.alterSuccess').append(opSuccess);
         }
+		window.location.href = `{{route('success')}}`;
       },
       error:function(error3){
         if(error3){
@@ -325,6 +376,9 @@
 			if(error3.responseJSON.errors.city_id){
                 opError5+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.city_id+'</div>';
             }
+			if(error3.responseJSON.errors.phone2){
+                opError6+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.phone2+'</div>';
+            }
             $('.alterError1').html(" ");
 			$('.alterError2').html(" ");
 			$('.alterError3').html(" ");
@@ -335,6 +389,7 @@
 			$('.alterError3').append(opError1);
 			$('.alterError4').append(opError5);
 			$('.alterError5').append(opError2);
+			$('.alterError6').append(opError6);
         }
       },
       beforeSend: function() { 

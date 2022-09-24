@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">description</label>
-                <textarea name="description" id="" class="form-control" value="{{old('slug')}}" cols="30" rows="5"></textarea>
+                <textarea name="description" id="" class="form-control" cols="30" rows="5">{{old('slug')}}</textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label">url</label>

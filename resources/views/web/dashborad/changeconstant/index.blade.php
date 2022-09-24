@@ -46,6 +46,14 @@
                 <label class="form-label">title form offer</label>
                 <input type="text" name="title_form_offer" value="{{old('title_form_offer')}}" class="form-control">
             </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">title course feature</label>
+                <input type="text" name="title_coursefeature" value="{{old('title_coursefeature')}}" class="form-control">
+            </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">title famous programmer</label>
+                <input type="text" name="title_famousprogrammer" value="{{old('title_famousprogrammer')}}" class="form-control">
+            </div>
             <div class="col-md-12 col-12">
                 <label class="form-label">submit form content</label>
                 <input type="text" name="submit_form" value="{{old('submit_form')}}" class="form-control">
