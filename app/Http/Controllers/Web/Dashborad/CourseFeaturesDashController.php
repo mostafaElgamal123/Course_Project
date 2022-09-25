@@ -47,7 +47,7 @@ class CourseFeaturesDashController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'             =>'required|min:3|max:400',
+            'title'             =>'required|min:3|max:10000',
             'description'       =>'required|min:3|max:10000',
             'course_id'         =>'required'
         ]);
@@ -78,7 +78,7 @@ class CourseFeaturesDashController extends Controller
     public function update(Request $request, CourseFeature $coursefeature)
     {
         $request->validate([
-            'title'             =>'required|min:3|max:400',
+            'title'             =>'required|min:3|max:10000',
             'description'       =>'required|min:3|max:10000',
             'course_id'         =>'required'
         ]);

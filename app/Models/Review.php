@@ -13,7 +13,6 @@ class Review extends Model
         'review_video',
         'review_image',
         'course_id',
-        'status'
     ];
     public function courses(){
         return $this->belongsTo(Course::class,'course_id');
