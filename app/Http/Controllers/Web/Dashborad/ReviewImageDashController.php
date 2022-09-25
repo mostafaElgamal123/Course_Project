@@ -25,7 +25,7 @@ class ReviewImageDashController extends Controller
      */
     public function index()
     {
-        $review=Review::with('courses')->paginate();
+        $review=Review::with('courses')->paginate(6);
         return view('web.dashborad.review_image.index',compact('review'));
     }
 

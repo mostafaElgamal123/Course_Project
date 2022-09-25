@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Title;
 use App\Models\Course;
-use Storage;
 use App\Http\Requests\Web\Dashborad\TitleRequest;
 class TitleDashController extends Controller
 {

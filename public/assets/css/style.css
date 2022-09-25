@@ -504,3 +504,44 @@ footer input{
   background-color: #f8f9fa;
   padding-bottom: 100px;
 }
+
+.success_cover{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8f9fa;
+}
+
+.success_cover .content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #3c3c3c;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 20px;
+  transition: 0.5s;
+}
+.success_cover .content:hover{
+  box-shadow: 0 0 6px 0 #0f5132;
+}
+.success_cover .content >h1{
+  color: #0f5132;
+  margin-bottom: 30px;
+}
+
+.success_cover .content >p{
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  color: black;
+}
+
+.success_cover .content >p >span{
+  color: #0171cc;
+  margin-right: 15px;
+}

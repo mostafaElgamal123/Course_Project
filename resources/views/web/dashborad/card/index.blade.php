@@ -1,15 +1,15 @@
 @extends('web.dashborad.master')
 
 
-@section('title','card')
+@section('title','student samples')
 
-@section('breadcrumb','card')
+@section('breadcrumb','student samples')
 
 @section('content')
 
 
 <a href="{{url('/cards/create')}}" class="btn btn-primary">
-    add card
+    add student samples
 </a>
 @if($card->isNotEmpty())
 <div class="table-responsive pt-4 pb-4">

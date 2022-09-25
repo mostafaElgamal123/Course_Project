@@ -10,7 +10,7 @@ class SubTitle extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'title',
+        'subtitle',
         'title_id',
     ];
     public function titles(){

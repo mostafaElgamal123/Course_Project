@@ -35,7 +35,7 @@
                 <input type="text" name="title_section_review" value="{{$changeconstant->title_section_review}}" class="form-control">
             </div>
             <div class="col-md-6 col-12">
-                <label class="form-label">title card</label>
+                <label class="form-label">title student samples</label>
                 <input type="text" name="title_card" value="{{$changeconstant->title_card}}" class="form-control">
             </div>
             <div class="col-md-6 col-12">
@@ -46,6 +46,14 @@
                 <label class="form-label">title form offer</label>
                 <input type="text" name="title_form_offer" value="{{$changeconstant->title_form_offer}}" class="form-control">
             </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">title course feature</label>
+                <input type="text" name="title_coursefeature" value="{{$changeconstant->title_coursefeature}}" class="form-control">
+            </div>
+            <div class="col-md-6 col-12">
+                <label class="form-label">title famous programmer</label>
+                <input type="text" name="title_famousprogrammer" value="{{$changeconstant->title_famousprogrammer}}" class="form-control">
+            </div>
             <div class="col-md-12 col-12">
                 <label class="form-label">submit form content</label>
                 <input type="text" name="submit_form" value="{{$changeconstant->submit_form}}" class="form-control">
@@ -54,5 +62,11 @@
         </form>
     </div>
 </div>
-
+@if($course->isNotEmpty())
+<div class="row p-4">
+    <div class="col-12">
+    <a href="{{url('/testshowone/')}}" class="btn btn-primary title_action ms-2"data-title="show course data"><i class="fa fa-eye"></i></a>
+    </div>
+</div>
+@endif
 @endsection

@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">description</label>
-                <input type="text" name="description" value="{{$title->description}}" class="form-control">
+                <input type="text" name="description" id="mytextarea" value="{{$title->description}}" class="form-control">
             </div>
             <div class="mb-3">
                 <label class="form-label">course</label>

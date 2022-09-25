@@ -12,6 +12,7 @@ class Order extends Model
         'id',
         'name', 
         'phone',
+        'phone2',
         'email',
         'educational_qualification',
         'city_id',

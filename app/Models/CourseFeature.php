@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class CourseFeature extends Model
 {
     use HasFactory;
     protected $fillable = [
         'id',
-        'review_video',
-        'review_image',
+        'title',
+        'description',
         'course_id',
     ];
     public function courses(){

@@ -33,6 +33,8 @@ class ChangeConstantRequest extends FormRequest
             'title_form_offer'        =>'required|min:3|max:400',
             'submit_form'             =>'required|min:3|max:150',
             'title_card'              =>'required|min:3|max:400',
+            'title_coursefeature'     =>'required|min:3|max:400',
+            'title_famousprogrammer'  =>'required|min:3|max:400',
         ];
     }
 }

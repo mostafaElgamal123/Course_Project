@@ -177,7 +177,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
-                    Card
+                Student Samples
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -185,13 +185,59 @@
                 <li class="nav-item">
                     <a href="{{url('/cards/create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Add Card</p>
+                        <p>Add Student Samples</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/cards')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>View Cards</p>
+                        <p>View Student Samples</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Course Features
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('/coursefeatures/create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Course Features</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/coursefeatures')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Course Features</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Famous Program
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('/famousprogrammers/create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Famous Program</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/famousprogrammers')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Famous Program</p>
                     </a>
                 </li>
             </ul>

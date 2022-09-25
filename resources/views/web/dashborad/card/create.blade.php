@@ -3,12 +3,12 @@
 
 @section('title','create')
 
-@section('breadcrumb','add card')
+@section('breadcrumb','add student samples')
 
 @section('content')
 
 <a href="{{url('/cards')}}" class="btn btn-info">
-    view cards
+    view student samples
 </a>
 
 <div class="row pt-4 pb-4">
@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">description</label>
-                <textarea name="description" id="" class="form-control" value="{{old('slug')}}" cols="30" rows="5"></textarea>
+                <textarea name="description" id="" class="form-control" cols="30" rows="5">{{old('slug')}}</textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label">url</label>

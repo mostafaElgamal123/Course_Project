@@ -65,6 +65,7 @@
             <th scope="col">#</th>
             <th scope="col">name</th>
             <th scope="col">phone</th>
+            <th scope="col">phone2</th>
             <th scope="col">email</th>
             <th scope="col">city</th>
             <th scope="col">educational qualification</th>
@@ -79,6 +80,7 @@
                 <th scope="row" class="align-middle">{{$loop->iteration}}</th>
                 <td class="align-middle">{{$ord->name}}</td>
                 <td class="align-middle">{{$ord->phone}}</td>
+                <td class="align-middle">{{$ord->phone2}}</td>
                 <td class="align-middle">{{$ord->email}}</td>
                 <td class="align-middle">{{$ord->cities->city}}</td>
                 <td class="align-middle">{{$ord->educational_qualification}}</td>
