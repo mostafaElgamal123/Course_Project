@@ -271,7 +271,7 @@
 												<div class="alterError2"></div>
 											</div>
 											<div class="mb-3">
-												<label for="exampleInputPassword1" class="form-label">رقم اخر<span style="color:red; font-size:25px;">*</span></label>
+												<label for="exampleInputPassword1" class="form-label">رقم اخر</label>
 												<input type="text" id="phone2" class="form-control save border-dark" id="exampleInputPassword1">
 												<div class="alterError6"></div>
 											</div>
