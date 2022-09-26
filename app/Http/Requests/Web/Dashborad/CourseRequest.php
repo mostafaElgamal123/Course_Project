@@ -35,6 +35,7 @@ class CourseRequest extends FormRequest
             'review_video'        =>'required|min:3|max:100000',
             'category_id'         =>'required|',
             'status'              =>'required|',
+            'coursefeatures'       =>'required|min:3|max:10000',
             'slug'                =>'required|min:3|max:150'
         ];
     }

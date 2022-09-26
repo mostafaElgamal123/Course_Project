@@ -25,12 +25,21 @@ $('.back-to-top').click(function () {
     $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
     return false;
 });
-
+$(document).ready(function(){
+    $title_ask=$('.title_ask').html();
+    if($title_ask!=''){
+        $('.title_ask').css({'margin-top':'40px'});
+        $('.card_box ul').css({'margin-top':'0'});
+    }else{
+        $('.title_ask').css({'margin-top':'0'});
+        $('.card_box ul').css({'margin-top':'40px'});
+    }
+})
 // Courses carousel
 $(".courses-carousel").owlCarousel({
     rtl:true,
     autoplay: true,
-    smartSpeed: 1500,
+    smartSpeed: 1000,
     loop: true,
     dots: false,
     nav : false,

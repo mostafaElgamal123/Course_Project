@@ -7,7 +7,9 @@
 					<h1 class="title_course rounded-pill p-3 fw-bolder text-white">
 						{{$course->title}}
 					</h1>
+					<div>
 					<?php echo $course->description; ?>
+					</div>
 					<p>
 						<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
 						@if(isset($changeconstant->enrollnow)) {{$changeconstant->enrollnow}} @endif
@@ -30,10 +32,12 @@
 				<h3 class="text-center p-2 title_style under_line">@if(isset($changeconstant->title_section_content)) {{$changeconstant->title_section_content}} @endif</h3>
 			</div>
 			@foreach($course->titles as $title)
-			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column">
-				<?php echo $title->description; ?>
+			<div class="col-md-4 col-sm-6 col-12 mb-3 d-flex">
 				<div class="card_box">
 					<h3><strong>{{$title->title}}</strong></h3>
+					<div class="title_ask">
+					  <?php echo $title->description; ?>
+					</div>
 					<ul class="list-unstyled px-0">
 						@foreach($title->subtitles as $subtitle)
 						<li><i class="fas fa-check text-light bg-primary ms-2"></i>{{$subtitle->subtitle}}</li>
@@ -53,7 +57,7 @@
 </section>
 @endif
 <!-- End section1 -->
-@if($course->coursefeatures->isNotEmpty())
+@if($course->coursefeatures !=null)
         <!--course features-->
 		<section dir="ltr" class="bg-1">	
 			<div class="pt-5 pb-5 container">
@@ -61,12 +65,9 @@
 					<div class="col-12">
 						<h3 class="text-center p-2 title_style under_line">@if(isset($changeconstant->title_coursefeature)) {{$changeconstant->title_coursefeature}} @endif</h3>
 					</div>
-					@foreach($course->coursefeatures as $coursefeatu)
 					<div class="col-12 d-flex flex-column justify-content-center">
-						<p class="text-center fs-5">{{$coursefeatu->title}}</p>
-						<?php echo $coursefeatu->description ?>
+						<?php echo $course->coursefeatures; ?>
 					</div>
-					@endforeach
 				</div>
 			</div>
 		</section>
@@ -107,11 +108,13 @@
 				</div>
 
 				<div class="pt-5 pb-5">
-					<h2 class="text-center pt-3 pb-3 text-primary fw-bold title-color">
-					@if(isset($changeconstant->title_video2))  {{$changeconstant->title_video2}} @endif
-					</h2>
-					<div class="row">
-						<div class="col-md-10 col-12 mx-auto">
+					<div class="row flex-column">
+					    <div class="col-md-12 order-sm-1 order-2">
+							<h2 class="text-center pt-3 pb-3 text-primary fw-bold title-color">
+							@if(isset($changeconstant->title_video2))  {{$changeconstant->title_video2}} @endif
+							</h2>
+						</div>
+						<div class="order-md-2 order-1 col-sm-10 col-12 mx-auto">
 							<?php  echo $course->explanation_video; ?>
 						</div>
 					</div>
@@ -268,7 +271,7 @@
 												<div class="alterError2"></div>
 											</div>
 											<div class="mb-3">
-												<label for="exampleInputPassword1" class="form-label">   الرقم 2<span style="color:red; font-size:25px;">*</span></label>
+												<label for="exampleInputPassword1" class="form-label">رقم اخر<span style="color:red; font-size:25px;">*</span></label>
 												<input type="text" id="phone2" class="form-control save border-dark" id="exampleInputPassword1">
 												<div class="alterError6"></div>
 											</div>
@@ -332,7 +335,6 @@
 	var opError3=" ";
 	var opError4=" ";
 	var opError5=" ";
-	var opError6=" ";
     $.ajax({
       url: "{{url('orders')}}",
       type:"post",
@@ -356,7 +358,6 @@
 		$('.alterError3').html(" ");
 		$('.alterError4').html(" ");
 		$('.alterError5').html(" ");
-		$('.alterError6').html(" ");
         $('.alterSuccess').html(" ");
         $('.alterSuccess').append(opSuccess);
         }
@@ -379,9 +380,6 @@
 			if(error3.responseJSON.errors.city_id){
                 opError5+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.city_id+'</div>';
             }
-			if(error3.responseJSON.errors.phone2){
-                opError6+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.phone2+'</div>';
-            }
             $('.alterError1').html(" ");
 			$('.alterError2').html(" ");
 			$('.alterError3').html(" ");
@@ -392,7 +390,6 @@
 			$('.alterError3').append(opError1);
 			$('.alterError4').append(opError5);
 			$('.alterError5').append(opError2);
-			$('.alterError6').append(opError6);
         }
       },
       beforeSend: function() { 

@@ -26,7 +26,11 @@
             </div>
             <div class="col-12">
                 <label class="form-label">description</label>
-                <textarea name="description" id="mytextarea" class="form-control" cols="30" rows="10">{{old('description')}}</textarea>
+                <textarea name="description" id="mytextarea1" class="form-control mytextarea1" cols="30" rows="10">{{old('description')}}</textarea>
+            </div>
+            <div class="col-12">
+                <label class="form-label">course feature</label>
+                <textarea name="coursefeatures" id="mytextarea2" class="form-control mytextarea1" cols="30" rows="10">{{old('coursefeatures')}}</textarea>
             </div>
             <div class="col-12 col-md-6 col-sm-12">
                 <label class="form-label">rating</label>
