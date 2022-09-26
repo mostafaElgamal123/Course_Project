@@ -13,7 +13,7 @@
             @foreach($course as $cours)
             <div class="col-lg-4 col-md-6 pb-4">
                 <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="{{url('courses/'.$cours->slug)}}">
-                    <img class="img-fluid" src="{{asset('storage/'.$cours->image)}}" alt="">
+                    <img class="img-fluid" src="<?php if($cours->image !='back-2_1627326624.webp'): ?>{{asset('storage/'.$cours->image)}} <?php else: ?>{{asset('assets/imgs/'.$cours->image)}} <?php endif; ?>" alt="">
                     <div class="courses-text">
                         <h4 class="text-center text-white px-3">{{$cours->title}}</h4>
                         <div class="border-top w-100 mt-3">

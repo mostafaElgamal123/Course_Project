@@ -83,7 +83,7 @@
 					<div class="owl-carousel courses-carousel">
 						@foreach($famousprogrammer as $famousprogram)
 						<div class="courses-item position-relative">
-							<img class="img-fluid" src="{{asset('storage/'.$famousprogram->image)}}" alt="">
+							<img class="img-fluid" src="<?php if($famousprogram->image !='unnamed.jpg'): ?>{{asset('storage/'.$famousprogram->image)}} <?php else: ?> {{asset('assets/imgs/'.$famousprogram->image)}} <?php endif; ?>" alt="">
 						</div>
 						@endforeach
 					</div>
@@ -191,7 +191,7 @@
 						@foreach($course->reviews as $review)
 						@if($review->review_image!=null)
 							<div class="col-lg-4 col-md-6 col-12">
-							<img src="{{asset('storage/'.$review->review_image)}}">
+							<img src="<?php if($review->review_image !='r1_1652729127.webp'): ?>{{asset('storage/'.$review->review_image)}} <?php else: ?>{{asset('assets/imgs/'.$review->review_image)}} <?php endif; ?>">
 							</div>
 							@endif
 						@endforeach
@@ -214,7 +214,7 @@
 						<div class="owl-carousel courses-carousel">
 							@foreach($course->cards as $card)
 							<div class="courses-item position-relative">
-								<img class="img-fluid" src="{{asset('storage/'.$card->image)}}" alt="">
+								<img class="img-fluid" src="<?php if($card->image !='courses-4.jpg'): ?>{{asset('storage/'.$card->image)}} <?php else: ?>{{asset('assets/imgs/'.$card->image)}} <?php endif; ?>" alt="">
 								<div class="courses-text">
 									<h4 class="text-center text-white px-3">{{$card->description}}</h4>
 									<div class="border-top w-100 mt-3">
@@ -295,7 +295,7 @@
 									</div>
 									<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 col-12 d-flex">
 										<div class="form_image">
-											<img src="{{asset('storage/'.$course->image)}}" alt="">
+											<img src="<?php if($course->image !='back-2_1627326624.webp'): ?>{{asset('storage/'.$course->image)}} <?php else: ?>{{asset('assets/imgs/'.$course->image)}} <?php endif; ?>" alt="">
 										</div>
 									</div>
 								</div>
