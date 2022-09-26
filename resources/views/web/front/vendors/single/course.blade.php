@@ -84,7 +84,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="owl-carousel courses-carousel">
+					<div class="owl-carousel famousprogrammer-carousel">
 						@foreach($famousprogrammer as $famousprogram)
 						<div class="courses-item position-relative">
 							<img class="img-fluid" src="<?php if($famousprogram->image !='unnamed.jpg'): ?>{{asset('storage/'.$famousprogram->image)}} <?php else: ?> {{asset('assets/imgs/'.$famousprogram->image)}} <?php endif; ?>" alt="">
@@ -99,22 +99,22 @@
 		<section class="bg-1 review">
 			<div class="container">
 				<div class="row sec-vedio">
-					<div class="col-lg-6 col-md-12">
-						<?php echo $course->review_video; ?>
-					</div>
-					<div class="col-lg-6 col-md-12">
+					<div class="col-lg-6 col-md-12 order-sm-2 order-1">
 						<h2 class="text-primary p-2 text-center title-color">@if(isset($changeconstant->title_video1)) {{$changeconstant->title_video1}} @endif</h2>
+					</div>
+					<div class="col-lg-6 col-md-12 order-md-1 order-1">
+						<?php echo $course->review_video; ?>
 					</div>
 				</div>
 
 				<div class="pt-5 pb-5">
 					<div class="row flex-column">
-					    <div class="col-md-12 order-sm-1 order-2">
+					    <div class="col-md-12">
 							<h2 class="text-center pt-3 pb-3 text-primary fw-bold title-color">
 							@if(isset($changeconstant->title_video2))  {{$changeconstant->title_video2}} @endif
 							</h2>
 						</div>
-						<div class="order-md-2 order-1 col-sm-10 col-12 mx-auto">
+						<div class="col-sm-10 col-12 mx-auto">
 							<?php  echo $course->explanation_video; ?>
 						</div>
 					</div>

@@ -58,3 +58,27 @@ $(".courses-carousel").owlCarousel({
         }
     }
 });
+
+// famousprogrammer carousel
+$(".famousprogrammer-carousel").owlCarousel({
+    rtl:true,
+    autoplay: true,
+    smartSpeed: 1000,
+    loop: true,
+    dots: false,
+    nav : false,
+    responsive: {
+        0:{
+            items:1
+        },
+        576:{
+            items:2
+        },
+        768:{
+            items:3
+        },
+        992:{
+            items:4
+        }
+    }
+});

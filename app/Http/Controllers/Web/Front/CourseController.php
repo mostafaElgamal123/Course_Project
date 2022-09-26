@@ -30,7 +30,7 @@ class CourseController extends Controller
      */
     public function show($slug)
     {
-        $course=Course::with('titles','faqs','reviews','cards')->where('slug',$slug)->first();
+        $course=Course::with('titles','faqs','reviews','cards')->where('slug',$slug)->firstOrFail();
         $city=City::all();
         $famousprogrammer=FamousProgrammer::all();
         $changeconstant=ChangeConstant::first();
