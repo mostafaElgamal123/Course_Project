@@ -8,9 +8,12 @@
 						{{$course->title}}
 					</h1>
 					<?php echo $course->description; ?>
-					<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
-					@if(isset($changeconstant->enrollnow)) {{$changeconstant->enrollnow}} @endif
-					</a>
+					<p>
+						<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
+						@if(isset($changeconstant->enrollnow)) {{$changeconstant->enrollnow}} @endif
+						</a>
+					</p>
+					
 				</div>
 			</div>
 		</div>
@@ -224,7 +227,7 @@
 										</div>
 									</div>
 									<div class="w-100 bg-2 text-center p-4" >
-										<a class="btn btn-primary" href="{{$card->url}}">View Project</a>
+										<a class="btn btn-primary" href="{{$card->url}}" target="_blank">View Project</a>
 									</div>
 								</div>
 							</div>
