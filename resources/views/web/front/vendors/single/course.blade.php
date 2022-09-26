@@ -245,7 +245,7 @@
 				<div class="container">
 					<!-- Display the countdown timer in an element -->
 						<h1 class="rounded-pill p-3 fw-bolder text-primary title-color text-center">
-						@if(isset($changeconstant->title_form_offer)) {{$changeconstant->title_form_offer}} @endif <span class="color-price">{{$course->price}}</span> جنيه بدلا من <span class="color-price"><?php echo($course->price+$course->offer); ?></span>
+						@if(isset($changeconstant->title_form_offer)) {{$changeconstant->title_form_offer}} @endif <span class="color-price">{{$course->price}}</span> جنيه بدلا من <span class="color-price"> {{$course->price + $course->offer }}</span>
 						</h1>
 						<!-- end section7 -->
 						<!-- start footer -->
