@@ -27,7 +27,7 @@
         @if($rev->review_image!=null)
             <tr id="{{$rev->id}}">
                 <th scope="row" class="align-middle">{{$loop->iteration}}</th>
-                <td class="align-middle"><img style="width:60px;height:60px;border-radius:50%;" src="{{asset('storage/'.$rev->review_image)}}" alt=""></td>
+                <td class="align-middle"><img style="width:60px;height:60px;border-radius:50%;" src="<?php if($rev->review_image !='r1_1652729127.webp'): ?>{{asset('storage/'.$rev->review_image)}} <?php else: ?>{{asset('assets/imgs/'.$rev->review_image)}} <?php endif; ?>" alt=""></td>
                 <td class="align-middle"><span class=" w-40 m-2">{{$rev->courses->title}}</span></td>
                     <td class="align-middle">
                     <div class="d-flex align-items-center">
