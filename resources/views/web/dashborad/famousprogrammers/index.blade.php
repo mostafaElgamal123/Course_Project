@@ -25,7 +25,7 @@
         @foreach($famousprogrammer as $famousprogramm)
             <tr id="{{$famousprogramm->id}}">
                 <th scope="row" class="align-middle">{{$loop->iteration}}</th>
-                <td class="align-middle"><img style="width:60px;height:60px;border-radius:50%;" src="{{asset('storage/'.$famousprogramm->image)}}" alt=""></td>
+                <td class="align-middle"><img style="width:60px;height:60px;border-radius:50%;" src="<?php if($famousprogramm->image !='unnamed.jpg'): ?>{{asset('storage/'.$famousprogramm->image)}} <?php else: ?> {{asset('assets/imgs/'.$famousprogramm->image)}} <?php endif; ?>" alt=""></td>
                     <td class="align-middle">
                     <div class="d-flex align-items-center">
                             <a href="{{url('/famousprogrammers/'.$famousprogramm->id."/edit")}}" class="btn btn-info ms-2 title_action" data-title="edit"><i class="fas fa-edit"></i></a>
