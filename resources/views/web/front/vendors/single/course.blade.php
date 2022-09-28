@@ -172,11 +172,11 @@
 						<span><i class="fas fa-star"></i></span>
 					</div>
 				<!-- End section4 -->
-
+				@if($review_video !=null)
 					<!-- start section5 -->
 					<div class="container">
 						<div class="row pb-2">
-							@foreach($course->reviews as $review)
+							@foreach($review_video as $review)
 							@if($review->review_video!=null)
 							<div class="col-lg-3 col-md-6 col-12">
 								<?php echo $review->review_video; ?>
@@ -186,6 +186,8 @@
 						</div>
 					</div>
 					<!-- End section5 -->
+				@endif
+				@if($review_image !=null)
 					<!-- start section6 -->
 					<div class="container">
 						<div class="text-center pb-2">
@@ -194,7 +196,7 @@
 						</a>
 						</div>
 						<div class="row pb-5 pt-5">
-							@foreach($course->reviews as $review)
+							@foreach($review_image as $review)
 								@if($review->review_image!=null)
 								<div class="col-lg-4 col-md-6 col-12">
 								<img src="<?php if($review->review_image !='r1_1652729127.webp'): ?>{{asset('storage/'.$review->review_image)}} <?php else: ?>{{asset('assets/imgs/'.$review->review_image)}} <?php endif; ?>">
@@ -203,6 +205,7 @@
 							@endforeach
 						</div>
 					</div>
+				@endif
 			</section>
 		@endif
 			<!-- end section6 -->
