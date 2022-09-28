@@ -175,7 +175,7 @@
 
 					<!-- start section5 -->
 					<div class="container">
-						<div class="row pb-5">
+						<div class="row pb-2">
 							@foreach($course->reviews as $review)
 							@if($review->review_video!=null)
 							<div class="col-lg-3 col-md-6 col-12">
@@ -188,19 +188,19 @@
 					<!-- End section5 -->
 					<!-- start section6 -->
 					<div class="container">
-						<div class="text-center pb-5">
+						<div class="text-center pb-2">
 								<a href="#formview"  class="btn ms-auto main-btn mt-3 mb-3" type="submit">
 								@if(isset($changeconstant->enrollnow))	{{$changeconstant->enrollnow}} @endif
 						</a>
 						</div>
 						<div class="row pb-5 pt-5">
-						@foreach($course->reviews as $review)
-						@if($review->review_image!=null)
-							<div class="col-lg-4 col-md-6 col-12">
-							<img src="<?php if($review->review_image !='r1_1652729127.webp'): ?>{{asset('storage/'.$review->review_image)}} <?php else: ?>{{asset('assets/imgs/'.$review->review_image)}} <?php endif; ?>">
-							</div>
-							@endif
-						@endforeach
+							@foreach($course->reviews as $review)
+								@if($review->review_image!=null)
+								<div class="col-lg-4 col-md-6 col-12">
+								<img src="<?php if($review->review_image !='r1_1652729127.webp'): ?>{{asset('storage/'.$review->review_image)}} <?php else: ?>{{asset('assets/imgs/'.$review->review_image)}} <?php endif; ?>">
+								</div>
+								@endif
+							@endforeach
 						</div>
 					</div>
 			</section>
