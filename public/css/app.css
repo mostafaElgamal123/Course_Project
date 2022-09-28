@@ -10903,13 +10903,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-
+.subtitleform_cover{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0,0.8);
+  z-index: 88888;
+  display: none;
+}
 .subtitle{
   position: absolute;
   top: 50%;
   left: 50%;
   width: 300px;
-  height: auto;
+  max-height: 90%;
   transform: translateX(-50%) translateY(-50%);
   background: white;
   z-index: 1050;
@@ -10917,21 +10926,29 @@ textarea.form-control-lg {
   border-radius: 10px;
   box-shadow: 0 0 4px gainsboro;
   padding: 5px 10px;
-  display: none;
   overflow: hidden;
 }
 
-.subtitle_active{
+.subtitleform_cover_active{
   display: block;
 }
-
+.subtitle_cover{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0,0.8);
+  z-index: 88888;
+  display: none;
+}
 
 .subtitleview{
   position: absolute;
   top: 50%;
   left: 50%;
   width: 500px;
-  height: auto;
+  height: 90%;
   transform: translateX(-50%) translateY(-50%);
   background: white;
   z-index: 1050;
@@ -10939,11 +10956,10 @@ textarea.form-control-lg {
   border-radius: 10px;
   box-shadow: 0 0 4px gainsboro;
   padding: 5px 10px;
-  display: none;
   overflow: hidden;
 }
 
-.subtitleview_active{
+.subtitle_cover_active{
   display: block;
 }
 
@@ -11007,4 +11023,12 @@ textarea.form-control-lg {
 
 .close_form:hover{
   background-color: #ff0000;
+}
+
+.toast-body{
+  height: 100%;
+}
+.toast-body .table-responsive{
+  height: 100%;
+  overflow: auto;
 }

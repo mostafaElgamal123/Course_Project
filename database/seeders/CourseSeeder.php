@@ -47,7 +47,7 @@ class CourseSeeder extends Seeder
             'rating'            => '5',
             'lectures'          => '60',
             'price'             => '3000',
-            'offer'             => '6000',
+            'offer'             => '3000',
             'explanation_video' => '<iframe width="1076" height="400" src="https://www.youtube.com/embed/O6vtEiJxOZ8" title="php project - registration system using php and mysql (arabic)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
             'review_video'      => '<iframe width="636" height="400" src="https://www.youtube.com/embed/2jT4Zto8gs8" title="eraasoft" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
             'category_id'       => '1',
