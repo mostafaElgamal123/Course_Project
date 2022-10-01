@@ -24,12 +24,12 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                              =>'required|min:3|max:250',
-            'phone'                             =>'required|numeric',
-            'phone2'                            =>'nullable|numeric',
+            'name'                              =>'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/|min:3|max:250',
+            'phone'                             =>'required|size:11|regex:/^01[0125][0-9]{8}$/',
+            'phone2'                            =>'nullable|size:11|regex:/^01[0125][0-9]{8}$/',
             'email'                             =>'required|email|unique:users,email',
             'city_id'                           =>'required|',
-            'educational_qualification'         =>'required|min:3|max:350'
+            'educational_qualification'         =>'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/|min:3|max:350'
         ];
     }
 }
