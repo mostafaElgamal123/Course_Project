@@ -1,7 +1,4 @@
-<!-- <script>
-   fbq('track', 'Lead')
-   fbq('track', 'CompleteRegistration');
-</script> -->
+
 
 @extends('web.front.master')
 

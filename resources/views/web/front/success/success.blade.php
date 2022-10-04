@@ -6,3 +6,8 @@
 @include('web.front.vendors.success.success')
 </body>
 </html>
+
+<!-- <script>
+   fbq('track', 'Lead')
+   fbq('track', 'CompleteRegistration');
+</script> -->
