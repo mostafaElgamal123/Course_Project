@@ -338,6 +338,7 @@
 	var opError3=" ";
 	var opError4=" ";
 	var opError5=" ";
+	var opError6=" ";
     $.ajax({
       url: "{{url('orders')}}",
       type:"post",
@@ -361,6 +362,7 @@
 		$('.alterError3').html(" ");
 		$('.alterError4').html(" ");
 		$('.alterError5').html(" ");
+		$('.alterError6').html(" ");
         $('.alterSuccess').html(" ");
         $('.alterSuccess').append(opSuccess);
         }
@@ -380,6 +382,9 @@
             if(error3.responseJSON.errors.phone){
                 opError4+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.phone+'</div>';
             }
+			if(error3.responseJSON.errors.phone2){
+                opError6+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.phone2+'</div>';
+            }
 			if(error3.responseJSON.errors.city_id){
                 opError5+='<div class="alert alert-danger pt-1 pb-1">'+error3.responseJSON.errors.city_id+'</div>';
             }
@@ -388,11 +393,13 @@
 			$('.alterError3').html(" ");
 			$('.alterError4').html(" ");
 			$('.alterError5').html(" ");
+			$('.alterError6').html(" ");
             $('.alterError1').append(opError3);
 			$('.alterError2').append(opError4);
 			$('.alterError3').append(opError1);
 			$('.alterError4').append(opError5);
 			$('.alterError5').append(opError2);
+			$('.alterError6').append(opError6);
         }
       },
       beforeSend: function() { 

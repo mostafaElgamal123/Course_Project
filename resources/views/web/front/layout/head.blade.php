@@ -26,4 +26,5 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=3205419696398708&ev=PageView&noscript=1"
   /></noscript> -->
+  @yield('ScriptVendors')
 </head>
